@@ -1,8 +1,21 @@
 import React from 'react';
 import './homepage.css';
 import { useState } from 'react';
+import { fadeIn, fadeInDown } from 'react-animations';
+import Radium, {StyleRoot} from 'radium';
+
+
+const styles = {
+   
+    fadeIn: {
+        animation: 'x 1s',
+        animationName: Radium.keyframes(fadeInDown, 'fadeInDown')
+    }
+  }
 
 const HomePage = () => {
+
+    
 
     const [onTopButtonClick, setOnTopButtonClick] = useState(false);
 
@@ -14,8 +27,15 @@ const HomePage = () => {
     const showProfile = () => {
         if(onTopButtonClick) {
             return (
-                <><div className='profileDiv bg-white text-white'>
-                        Hiii, byeee, cya 
+                <><div className='profileDiv bg-white text-white' style={styles.fadeIn}>
+
+                    <div className="basicDetailsRow">
+                    <img src="https://t4.ftcdn.net/jpg/02/45/56/35/360_F_245563558_XH9Pe5LJI2kr7VQuzQKAjAbz9PAyejG1.jpg" className='profileImage'/>
+
+<h3 className='profileNameText'>Armaan</h3>
+                    </div>
+
+                  
                     </div>
                     </>
             )
@@ -65,6 +85,7 @@ const HomePage = () => {
                         <div className="nintendoSwitch__screen">
                         
                             <div className="nintendoSwitch__screen__screen">
+                                
                             {onTopButtonClick ? showProfile() : null}
                             </div>
                         </div>

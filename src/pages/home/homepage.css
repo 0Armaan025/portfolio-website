@@ -1,8 +1,65 @@
+@import url('https://fonts.googleapis.com/css2?family=Protest+Riot&display=swap');
+
 * {
     margin: 0;
     padding: 0;
     background: black;
 }
+
+.profileNameText{
+    color: #fff;
+    font-size: 3rem;
+    background: none;
+    margin-top: 10px;
+    margin-right: 20px;
+    font-family: 'Protest Riot', sans-serif;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    position: relative;
+    animation: neonGlow 1.5s ease-in-out infinite alternate;
+}
+
+.basicDetailsRow {
+    margin-top: 0px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    background: #2b3136;
+    align-items: center;
+}
+
+.profileImage {
+    background: #2b3136;
+    width: 70px;
+    margin-right: 20px;
+    height: 70px;
+    border-radius: 50%;
+}
+
+.profileNameText::after {
+    content: attr(data-text);
+    position: absolute;
+    background: none;
+    top: 0;
+    left: 0;
+    color: #00f0ff;
+    z-index: -1;
+}
+
+@keyframes neonGlow {
+    from {
+
+        text-shadow: 0 0 10px #00f0ff, 0 0 20px #00f0ff, 0 0 30px #00f0ff;
+        
+    }
+    to {
+        text-shadow: 0 0 20px #00f0ff, 0 0 30px #00f0ff, 0 0 40px #00f0ff;
+        
+    }
+}
+
+
 
 .profileDiv {
     background: #2b3136;
