@@ -1,11 +1,26 @@
 import React from 'react';
 import './homepage.css';
+import { useState } from 'react';
 
 const HomePage = () => {
 
+    const [onTopButtonClick, setOnTopButtonClick] = useState(false);
+
+
+    const onInternalButtonClick = () => { 
+        setOnTopButtonClick(true);
+    }
                
-    const onInternalButtonClick = () => console.log('hi');
-    const onTopButtonClick = () => console.log('im noob');
+    const showProfile = () => {
+        if(onTopButtonClick) {
+            return (
+                <><div className='profileDiv bg-white text-white'>
+                        Hiii, byeee, cya 
+                    </div>
+                    </>
+            )
+        }
+    }
 
     return (
         <>
@@ -22,9 +37,10 @@ const HomePage = () => {
 
                         </div>
 
-                        <button className="topButton" onClick={onTopButtonClick}>
-                            <div className="internalButton" onClick={onInternalButtonClick}></div>
-                        </button>
+                        <button className="topButton" onClick={onInternalButtonClick}>
+  <div className="internalButton"></div>
+</button>
+
 
                         <div className="arrowButtons">
                             <button className="topArrowButton">
@@ -47,7 +63,9 @@ const HomePage = () => {
                     </div>
                     <div className="nintendoSwitch__outsideScreen">
                         <div className="nintendoSwitch__screen">
+                        
                             <div className="nintendoSwitch__screen__screen">
+                            {onTopButtonClick ? showProfile() : null}
                             </div>
                         </div>
                     </div>

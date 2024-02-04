@@ -4,6 +4,12 @@
     background: black;
 }
 
+.profileDiv {
+    background: #2b3136;
+    height: 100%;
+    width: 100%;
+}
+
 .homePage {
     background: none;
     display: flex;
