@@ -1,0 +1,248 @@
+* {
+    margin: 0;
+    padding: 0;
+    background: black;
+}
+
+.homePage {
+    background: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.nintendoSwitch {
+    display: flex;
+    flex-direction: row;
+
+}
+.nintendoSwitch__screen {
+    width: 480px;
+    height: 250px;
+    background: #02070e;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border-radius: 3px;
+    align-items: center;
+}
+
+.leftSide {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 2px 1px 1px grey;
+    width: 85px;
+    height: 260px;
+    border-end-start-radius: 40px;
+    border-top-left-radius: 40px;
+    background: #02ddff;
+}
+
+.rightSide {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 85px;
+    height: 260px;
+    border-end-end-radius: 40px;
+    border-top-right-radius: 40px;
+    background: #ff2a1c;
+    box-shadow: 2px 1px 1px grey;
+}
+
+.nintendoSwitch__outsideScreen {
+    width: 490px;
+    height: 260px;
+    background: #6e6e6e;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border-radius: 1px;
+    align-items: center;
+}
+.nintendoSwitch__screen__screen {
+    width: 430px;
+    height: 220px;
+    background: #2b3136;
+    border-radius: 2px;
+}
+
+
+
+/* https://cdn-icons-png.flaticon.com/128/271/271220.png left
+
+https://cdn-icons-png.flaticon.com/128/271/271228.png right
+
+https://cdn-icons-png.flaticon.com/128/3838/3838683.png top
+
+https://cdn-icons-png.flaticon.com/128/6916/6916826.png bottom */
+
+
+
+.topButton {
+    width: 50px;
+    box-shadow: 2px 1px 2px 3px black;
+    height: 50px;
+    bottom: 60px;
+    border-radius: 50%;
+    display: flex;
+    flex-direction: column;
+    margin-top: 60px;
+    position: relative;
+    background: linear-gradient(36deg, #090100, #7b7b7b);
+    justify-content: center;
+    align-items: center;
+}
+
+/* https://cdn-icons-png.flaticon.com/128/271/271220.png left
+
+https://cdn-icons-png.flaticon.com/128/271/271228.png right
+
+https://cdn-icons-png.flaticon.com/128/3838/3838683.png top
+
+https://cdn-icons-png.flaticon.com/128/6916/6916826.png bottom */
+
+.internalButton {
+    width: 30px;
+    height: 30px;
+    border: 1px solid rgb(56, 56, 56);
+    border-radius: 50%;
+    
+    background: linear-gradient(36deg, #090100, #0b0000);
+}
+
+.righttopButton {
+    width: 50px;
+    box-shadow: 2px 1px 2px 3px black;
+    height: 50px;
+    bottom: 40px;
+    border-radius: 50%;
+    display: flex;
+    flex-direction: column;
+    margin-top: 30px;
+    position: relative;
+    background: linear-gradient(36deg, #090100, #7b7b7b);
+    justify-content: center;
+    align-items: center;
+}
+
+.plus_btn {
+    font-size: 30px;
+    position: relative;
+    right: 20px;
+    bottom: 5px;
+    color: black;
+    text-shadow: 2px 1px 3px black;
+}
+
+/* https://cdn-icons-png.flaticon.com/128/271/271220.png left
+
+https://cdn-icons-png.flaticon.com/128/271/271228.png right
+
+https://cdn-icons-png.flaticon.com/128/3838/3838683.png top
+
+https://cdn-icons-png.flaticon.com/128/6916/6916826.png bottom */
+
+.rightinternalButton {
+    width: 30px;
+    height: 30px;
+    border: 1px solid rgb(56, 56, 56);
+    border-radius: 50%;
+    
+    background: linear-gradient(36deg, #090100, #0b0000);
+}
+
+.arrowLetter {
+    font-size: 14px;
+    background: none;
+}
+
+.leftArrowButton {
+    width: 25px;
+    height: 25px;
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    box-shadow: 2px 1px 2px black;
+    align-items: center;
+    right:7.5px;
+    border-radius: 50%;
+    background: linear-gradient(65deg,rgb(15, 2, 0)0, #7b7b7b);
+}
+.topArrowButton {
+    width: 25px;
+    box-shadow: 2px 1px 2px black;
+    height: 25px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    background: linear-gradient(65deg,rgb(15, 2, 0)0, #7b7b7b);
+}
+
+.arrowButtons {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background: none;
+    align-items: center;
+}
+img {
+    background: none;
+}
+.letterButtons {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: none;
+    margin-top: 15px;
+    margin-bottom: 13px;
+}
+.leftAndRightArrowButtons {
+    display: flex;
+    flex-direction: row;
+    background: none;
+    justify-content: center;
+    align-items: center;
+}
+
+.bottomArrowButton {
+    width: 25px;
+    height: 25px;
+    display: flex;
+    flex-direction: row;
+    box-shadow: 2px 1px 2px black;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    background: linear-gradient(65deg,rgb(15, 2, 0)0, #7b7b7b);
+}
+.rightArrowButton {
+    width: 25px;
+    height: 25px;
+    position: relative;
+    box-shadow: 2px 1px 2px black;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    left: 7.5px;
+    border-radius: 50%;
+    background: linear-gradient(65deg,rgb(15, 2, 0)0, #7b7b7b);
+}
+.minus_btn {
+    width: 15px;
+    height: 5px;
+    background-color: black;
+    position: relative;
+    box-shadow: 2px 1px 3px black;
+    bottom: 20px;
+    margin-left: 45px;
+}
