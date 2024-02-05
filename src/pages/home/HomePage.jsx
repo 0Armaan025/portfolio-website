@@ -22,24 +22,37 @@ const HomePage = () => {
     const [onUpArrowButtonClick, setonUpArrowButtonClick] = useState(false);
     const [onRightArrowButtonClick, setonRightArrowButtonClick] = useState(false);
     const [onLeftArrowButtonClick, setonLeftArrowButtonClick] = useState(false);
+    const [onBottomArrowButtonClick, setonBottomArrowButtonClick] = useState(false);
+
+    const handleBottomArrowButtonClick = () => {
+        setonBottomArrowButtonClick(true);
+        setonLeftArrowButtonClick(false);
+        setonRightArrowButtonClick(false);
+        setOnTopButtonClick(false);
+        setonUpArrowButtonClick(false);
+        
+    }
 
     const handleLeftArrowButtonClick = () => {
         setonLeftArrowButtonClick(true);
         setonRightArrowButtonClick(false);
         setOnTopButtonClick(false);
         setonUpArrowButtonClick(false);
+        setonBottomArrowButtonClick(false);
     }
 
 
     const handleRightArrowButtonClick = () => {
         setonRightArrowButtonClick(true);
         setOnTopButtonClick(false);
+        setonBottomArrowButtonClick(false);
         setonUpArrowButtonClick(false);
         setonLeftArrowButtonClick(false);
     }
 
     const onInternalButtonClick = () => {
         setOnTopButtonClick(true);
+        setonBottomArrowButtonClick(false);
         setonUpArrowButtonClick(false);
         setonRightArrowButtonClick(false);
         setonLeftArrowButtonClick(false);
@@ -47,6 +60,7 @@ const HomePage = () => {
 
     const handleUpArrowButtonClick = () => {
         setonUpArrowButtonClick(true);
+        setonBottomArrowButtonClick(false);
         setOnTopButtonClick(false);
         setonRightArrowButtonClick(false);
         setonLeftArrowButtonClick(false);
@@ -59,7 +73,7 @@ const HomePage = () => {
 
 
                     <div className="basicDetailsRow">
-                        <img src="https://avatars.githubusercontent.com/u/77193760?v=4" alt="Armaan" className="profileImage" />
+                        <img src="https://avatars.githubusercontent.com/u/104704093?v=4" alt="Armaan" className="profileImage" />
                         <h3 className='profileNameText'>Armaan</h3>
                     </div>
 
@@ -93,8 +107,8 @@ const HomePage = () => {
                     <br />
                     <h3 className='background-none' style={{ fontFamily: "Acme", background: "none", fontSize: "32px" }}>SKILL SET 🚀</h3>
                     <br />
-                    <h4 style={{ background: "none", fontSize: "15px", background: "none", fontWeight: "bold", fontFamily: "Poor Story" }}> <ReactTyped style={{ background: "none" }} strings={["🪄 Flutter | 🔥 Flame | 🕸️ HTML | ©️ CSS | 💻 JAVASCRIPT | 🐍 Python | 📖 React.js | 📂 Open Source | 🏆 Hackathon Lover | 🎨 Figma | 🖼️ Adobe XD | ☁️ Firebase | ☁️ Supabase | ☁️ MongoDB"]} typeSpeed={40} loop /></h4>
-                    <h4 style={{ background: "none", fontSize: "15px", background: "none", fontWeight: "bold", fontFamily: "Poor story" }}> <ReactTyped style={{ background: "none" }} strings={["Did ©️, ©️➕➕, and ☕ long time ago."]} typeSpeed={100} /></h4>
+                    <h4 style={{ background: "none", fontSize: "18px", background: "none", fontWeight: "bold", fontFamily: "Poor Story" }}> <ReactTyped style={{ background: "none" }} strings={["🪄 Flutter | 🔥 Flame | 🕸️ HTML | ©️ CSS | 💻 JAVASCRIPT | 🐍 Python | 📖 React.js | 📂 Open Source | 🏆 Hackathon Lover | 🎨 Figma | 🖼️ Adobe XD | ☁️ Firebase | ☁️ Supabase | ☁️ MongoDB"]} typeSpeed={40} loop /></h4>
+                    <h4 style={{ background: "none", fontSize: "16px", background: "none", fontWeight: "bold", fontFamily: "Poor story" }}> <ReactTyped style={{ background: "none" }} strings={["Did ©️, ©️➕➕, and ☕ long time ago."]} typeSpeed={100} /></h4>
 
                     <br />
                 </div>
@@ -118,12 +132,21 @@ const HomePage = () => {
                             <h4 className='educationHeadlineText font-semibold text-white text-5xl'>Education and Experience! 📙</h4>
                             <div className="educationBoxes">
                                 <div className="educationBox1">
-                                    <h3>Education</h3>
+                                    <h3 className='text-2xl font-bold' style={{fontFamily: "Poppins"}}>Education 🏫</h3>
                                     <h4>25/01/2010 = Birth</h4>
-                                    <h4>2013 = School <a href="http://shcsjagraon.com">SHCS, Jagraon 📌</a></h4>
+                                    <h4>2013-Present = School </h4>
+                                    <h4><a href="http://shcsjagraon.com" target="new" style={{fontFamily: "Poppins", color: "skyblue"}}>SHCS, Jagraon 📌</a></h4>
                                 </div>
-                                <div className="educationBox2">
 
+                                {/* <div className="dividerBox"></div> */}
+
+                                <div className="educationBox2">
+                                <h3 className='text-2xl font-bold' style={{fontFamily: "Poppins"}}>Experience 💼</h3>
+                                <h4>Hackathon Hacker 👨🏻‍💻</h4>
+                                    <h4>^ 2022 Nov - Present 🕰️ </h4>
+                                    <h4>Appgud hackathon judge - 2024 🧑🏻‍⚖️</h4>
+                                    <h4>CodeBeetles Admin - Present 🔥</h4>
+                                    
                                 </div>
                             </div>
                     <br />
