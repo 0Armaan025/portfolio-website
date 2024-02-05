@@ -115,8 +115,17 @@ const HomePage = () => {
 
 
                     <br />
-                            <h4 className='educationHeadlineText font-semibold text-white text-5xl'>Education and Experience!</h4>
+                            <h4 className='educationHeadlineText font-semibold text-white text-5xl'>Education and Experience! 📙</h4>
+                            <div className="educationBoxes">
+                                <div className="educationBox1">
+                                    <h3>Education</h3>
+                                    <h4>25/01/2010 = Birth</h4>
+                                    <h4>2013 = School <a href="http://shcsjagraon.com">SHCS, Jagraon 📌</a></h4>
+                                </div>
+                                <div className="educationBox2">
 
+                                </div>
+                            </div>
                     <br />
                 </div>
 

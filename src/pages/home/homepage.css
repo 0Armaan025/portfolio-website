@@ -10,19 +10,91 @@
 * {
     margin: 0;
     padding: 0;
+    
     background: black;
+}
+
+body {
+    --metal-tex: url(https://images.unsplash.com/photo-1501166222995-ff31c7e93cef?crop=entropy&cs=tinysrgb&fm=jpg&ixid=MnwzMjM4NDZ8MHwxfHJhbmRvbXx8fHx8fHx8fDE2NTcyMDc2NzU&ixlib=rb-1.2.1&q=80);
 }
 
 .contactDiv {
     background: #2b3136;
 }
+.educationBoxes {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+.educationHeadlineText {
+    position: relative;
+    font-size:32px;
+    bottom:50px;
+    letter-spacing: 4px;
+    font-family: sans-serif;
+    display:table;
+    margin:40px auto;
+    cursor:pointer;
+    transition:.6s;
+  }
+  .educationHeadlineText:before,
+  .educationHeadlineText:after {
+    content:attr(data-text);
+    transition:.6s;
+  }
 
-.slicedText {}
+  .educationBox1 {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: none;
+  }
+
+  .educationHeadlineText:before {
+    left: 0;
+    top: 0;
+    position: absolute;
+    z-index:-1;
+    text-shadow:
+     0px 0px,
+     0px 0px,
+     0px 0px,
+     0px 0px,
+     0px 0px,
+     0px 0px,
+     0px 0px,
+     0px 0px,
+     0px 0px,
+     0px 0px;
+    -webkit-mask:repeating-linear-gradient(45deg, transparent 0 3px, rgba(0,0,0,0.5) 0 6px);
+            mask:repeating-linear-gradient(45deg, transparent 0 3px, rgba(0,0,0,0.5) 0 6px);
+  }
+  .educationHeadlineText:hover {
+    transform:translate(-10px,-10px);
+    text-shadow: 10px 20px 10px black   ;
+  }  
+  .educationHeadlineText:hover:before {
+    text-shadow:
+     1px 1px black,
+     2px 2px black ,
+     3px 3px black,
+     4px 4px black,
+     5px 5px black,
+     6px 6px black ,
+     7px 7px black,
+     8px 8px black,
+     9px 9px black,
+     10px 10px black;
+  }
 
 .contactLink {
     animation: normalGlow 1.5s ease-in-out infinite alternate;
     font-family: 'Courgette', cursive;
 }
+
+
 
 .contactBoxes {
     display: flex;
