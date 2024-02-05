@@ -21,24 +21,35 @@ const HomePage = () => {
     const [onTopButtonClick, setOnTopButtonClick] = useState(false);
     const [onUpArrowButtonClick, setonUpArrowButtonClick] = useState(false);
     const [onRightArrowButtonClick, setonRightArrowButtonClick] = useState(false);
+    const [onLeftArrowButtonClick, setonLeftArrowButtonClick] = useState(false);
+
+    const handleLeftArrowButtonClick = () => {
+        setonLeftArrowButtonClick(true);
+        setonRightArrowButtonClick(false);
+        setOnTopButtonClick(false);
+        setonUpArrowButtonClick(false);
+    }
 
 
     const handleRightArrowButtonClick = () => {
         setonRightArrowButtonClick(true);
         setOnTopButtonClick(false);
         setonUpArrowButtonClick(false);
+        setonLeftArrowButtonClick(false);
     }
 
     const onInternalButtonClick = () => {
         setOnTopButtonClick(true);
         setonUpArrowButtonClick(false);
         setonRightArrowButtonClick(false);
+        setonLeftArrowButtonClick(false);
     }
 
     const handleUpArrowButtonClick = () => {
         setonUpArrowButtonClick(true);
         setOnTopButtonClick(false);
         setonRightArrowButtonClick(false);
+        setonLeftArrowButtonClick(false);
     }
 
     const showProfile = () => {
@@ -97,39 +108,71 @@ const HomePage = () => {
         }
     }
 
+    const showEducation = () => {
+        if (onLeftArrowButtonClick) {
+            return (
+                <><div className='educationDiv bg-white text-white' style={styles.fadeIn}>
+
+
+                    <br />
+                            <h4 className='educationHeadlineText font-semibold text-white text-5xl'>Education and Experience!</h4>
+
+                    <br />
+                </div>
+
+
+
+
+
+                </>
+            )
+        }
+    }
+
     const showContact = () => {
         if (onRightArrowButtonClick) {
             return (
                 <><div className='contactDiv bg-white text-white' style={styles.fadeIn}>
 
 
-                    <br />
-                    
-                    
+
+
+
                     <h3 className='slicedText'>Reach me at: </h3>
-                    
-                    <br/>
 
-                    <a className='contactLink' href="emailto:armaan33000@gmail.com">Email: armaan33000@gmail.com</a>
-                    <br/>
-                    <a className='contactLink' href="https://github.com/0Armaan025" target='new'>Github: 0Armaan025</a>
-                    <br/>
-                    <a className='contactLink' href="https://x.com/0Armaan025" target='new'>X(formerly-twitter)</a>
-                    
-                    
-                    <br />
 
-                    <br />
+
+                    <div className="contactBoxes mt-5 ml-1">
+                        <div className="contactBox1">
+                            <a className='contactLink' href="emailto:armaan33000@gmail.com">Email: armaan33000@gmail.com</a>
+
+                            <a className='contactLink' href="https://github.com/0Armaan025" target='new'>Github: 0Armaan025</a>
+
+                            <a className='contactLink' href="https://x.com/0Armaan025" target='new'>X(formerly-twitter): 0Armaan025</a>
+
+                            <a className='contactLink' href="https://devpost.com/armaan33000?ref_content=user-portfolio&ref_feature=portfolio&ref_medium=global-nav" target='new'>Devpost: Armaan 25</a>
+
+                        </div>
+                        <div className="contactBox2 ml-4 mr-2">
+                            <img className="rounded-lg" style={{ background: "none" }} src="https://images.ladbible.com/resize?type=jpeg&quality=70&width=720&fit=contain&gravity=null&url=https://s3-images.ladbible.com/s3/content/bd9f19995fe03288211239f5ac6e093f.png" width="150px" height="300px" />
+                        </div>
+                    </div>
+
+
+
+
+
+
                 </div>
 
-                help
+                    {/* help
                 - info
                 - location
                 - skills
                 - contact
                 - projects
-                - education
-                
+                - education */}
+
 
 
 
@@ -163,7 +206,7 @@ const HomePage = () => {
                                     <img src="https://cdn-icons-png.flaticon.com/128/3838/3838683.png" height="20px" width="20px" />
                                 </button>
                                 <div className="leftAndRightArrowButtons">
-                                    <button className="leftArrowButton">
+                                    <button className="leftArrowButton" onClick={handleLeftArrowButtonClick}>
                                         <img src="https://cdn-icons-png.flaticon.com/128/271/271220.png" height="15px" width="15px" />
                                     </button>
                                     <button className="rightArrowButton" onClick={handleRightArrowButtonClick}>
@@ -185,6 +228,7 @@ const HomePage = () => {
                                     {onTopButtonClick ? showProfile() : null}
                                     {onUpArrowButtonClick ? showSkillSet() : null}
                                     {onRightArrowButtonClick ? showContact() : null}
+                                    {onLeftArrowButtonClick ? showEducation() : null}
                                 </div>
                             </div>
                         </div>

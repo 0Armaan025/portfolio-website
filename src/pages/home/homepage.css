@@ -29,7 +29,22 @@
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    padding: 10px;
+    background: none;
+    padding: 2px;
+}
+
+.educationDiv {
+    background: none;
+}
+
+.educationHeadlineText {
+    background: none;
+    font-family: "Cute Font", cursive;
+
+}
+
+.contactBox1 {
+    background: none;
 }
 
 .contactBox1 {
