@@ -1,4 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Protest+Riot&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cute+Font&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Acme&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poor+Story&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Acme&family=DM+Sans:opsz,wght@9..40,500&display=swap');
 
 * {
     margin: 0;
@@ -6,7 +12,55 @@
     background: black;
 }
 
-.profileNameText{
+.contactDiv {
+    background: #2b3136;
+}
+
+.slicedText {}
+
+.slicedText {
+    font-size: 2rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: white;
+    font-family: "Permanent Marker", sans-serif;
+    margin-right: 2px;
+    margin-left: 2px;
+    padding: 10px;
+    background: none;
+    position: relative;
+    white-space: nowrap;
+
+    &:after {
+        --deco-height: 0.3125em;
+        content: "";
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: calc(var(--deco-height) * -0.625);
+        height: var(--deco-height);
+        background-image: url("data:image/svg+xml,%3Csvg width='100' height='64' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cg clip-path='url(%23a)'%3E%3Cpath d='M-17 30.5C-1 22 72-4 54 13 37.9 28.2-2.5 57.5 16 55.5s72-29 104-40' stroke='%2300FDCF' stroke-width='10'/%3E%3C/g%3E%3Cdefs%3E%3CclipPath id='a'%3E%3Cpath fill='%23fff' d='M0 0h100v64H0z'/%3E%3C/clipPath%3E%3C/defs%3E%3C/svg%3E%0A");
+        background-size: auto 100%;
+        background-repeat: round;
+        background-position: 0em;
+    }
+}
+
+
+.contactLink {
+background: none;
+}
+.middleRow {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    background: none;
+}
+
+
+
+.profileNameText {
     color: #fff;
     font-size: 3rem;
     background: none;
@@ -37,6 +91,10 @@
     border-radius: 50%;
 }
 
+.skillsDiv {
+    background: #2b3136;
+}
+
 .profileNameText::after {
     content: attr(data-text);
     position: absolute;
@@ -51,11 +109,12 @@
     from {
 
         text-shadow: 0 0 10px #00f0ff, 0 0 20px #00f0ff, 0 0 30px #00f0ff;
-        
+
     }
+
     to {
         text-shadow: 0 0 20px #00f0ff, 0 0 30px #00f0ff, 0 0 40px #00f0ff;
-        
+
     }
 }
 
@@ -80,6 +139,7 @@
     flex-direction: row;
 
 }
+
 .nintendoSwitch__screen {
     width: 480px;
     height: 250px;
@@ -127,6 +187,7 @@
     border-radius: 1px;
     align-items: center;
 }
+
 .nintendoSwitch__screen__screen {
     width: 430px;
     height: 220px;
@@ -174,7 +235,7 @@ https://cdn-icons-png.flaticon.com/128/6916/6916826.png bottom */
     height: 30px;
     border: 1px solid rgb(56, 56, 56);
     border-radius: 50%;
-    
+
     background: linear-gradient(36deg, #090100, #0b0000);
 }
 
@@ -215,7 +276,7 @@ https://cdn-icons-png.flaticon.com/128/6916/6916826.png bottom */
     height: 30px;
     border: 1px solid rgb(56, 56, 56);
     border-radius: 50%;
-    
+
     background: linear-gradient(36deg, #090100, #0b0000);
 }
 
@@ -233,10 +294,11 @@ https://cdn-icons-png.flaticon.com/128/6916/6916826.png bottom */
     justify-content: center;
     box-shadow: 2px 1px 2px black;
     align-items: center;
-    right:7.5px;
+    right: 7.5px;
     border-radius: 50%;
-    background: linear-gradient(65deg,rgb(15, 2, 0)0, #7b7b7b);
+    background: linear-gradient(65deg, rgb(15, 2, 0)0, #7b7b7b);
 }
+
 .topArrowButton {
     width: 25px;
     box-shadow: 2px 1px 2px black;
@@ -246,7 +308,7 @@ https://cdn-icons-png.flaticon.com/128/6916/6916826.png bottom */
     justify-content: center;
     align-items: center;
     border-radius: 50%;
-    background: linear-gradient(65deg,rgb(15, 2, 0)0, #7b7b7b);
+    background: linear-gradient(65deg, rgb(15, 2, 0)0, #7b7b7b);
 }
 
 .arrowButtons {
@@ -256,9 +318,11 @@ https://cdn-icons-png.flaticon.com/128/6916/6916826.png bottom */
     background: none;
     align-items: center;
 }
+
 img {
     background: none;
 }
+
 .letterButtons {
     display: flex;
     flex-direction: column;
@@ -268,6 +332,7 @@ img {
     margin-top: 15px;
     margin-bottom: 13px;
 }
+
 .leftAndRightArrowButtons {
     display: flex;
     flex-direction: row;
@@ -285,8 +350,9 @@ img {
     justify-content: center;
     align-items: center;
     border-radius: 50%;
-    background: linear-gradient(65deg,rgb(15, 2, 0)0, #7b7b7b);
+    background: linear-gradient(65deg, rgb(15, 2, 0)0, #7b7b7b);
 }
+
 .rightArrowButton {
     width: 25px;
     height: 25px;
@@ -298,8 +364,9 @@ img {
     align-items: center;
     left: 7.5px;
     border-radius: 50%;
-    background: linear-gradient(65deg,rgb(15, 2, 0)0, #7b7b7b);
+    background: linear-gradient(65deg, rgb(15, 2, 0)0, #7b7b7b);
 }
+
 .minus_btn {
     width: 15px;
     height: 5px;
