@@ -2,6 +2,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Cute+Font&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Courgette&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Acme&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Poor+Story&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Acme&family=DM+Sans:opsz,wght@9..40,500&display=swap');
@@ -17,6 +18,33 @@
 }
 
 .slicedText {}
+
+.contactLink {
+    animation: normalGlow 1.5s ease-in-out infinite alternate;
+    font-family: 'Courgette', cursive;
+}
+
+.contactBoxes {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+}
+
+.contactBox1 {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.contactBox2 {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
 
 .slicedText {
     font-size: 2rem;
@@ -72,6 +100,19 @@ background: none;
     letter-spacing: 2px;
     position: relative;
     animation: neonGlow 1.5s ease-in-out infinite alternate;
+}
+
+@keyframes normalGlow {
+    from {
+
+        text-shadow: 0 0 4px #00f0ff, 0 0 10px #00818b, 0 0 5px #00f0ff;
+
+    }
+
+    to {
+        text-shadow: 0 0 6px #00f0ff, 0 0 12px #84ff00, 0 0 20px #d0ff00;
+
+    }
 }
 
 .basicDetailsRow {
