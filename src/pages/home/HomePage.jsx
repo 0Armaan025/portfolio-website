@@ -1,6 +1,6 @@
 import React, { useSyncExternalStore } from 'react';
 import './homepage.css';
-import { useState , useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { fadeIn, fadeInDown } from 'react-animations';
 import Radium, { StyleRoot } from 'radium';
 import { ReactTyped } from 'react-typed';
@@ -26,22 +26,32 @@ const HomePage = () => {
     const [onLeftArrowButtonClick, setonLeftArrowButtonClick] = useState(false);
     const [onBottomArrowButtonClick, setonBottomArrowButtonClick] = useState(false);
     const [showTerminalButton, setshowTerminalButton] = useState(false);
-        const [input, setInput] = useState('');
-        const [output, setOutput] = useState('');
-    
-        const handleInputChange = (e) => {
+    const [input, setInput] = useState('');
+    const [output, setOutput] = useState('');
+
+    const handleInputChange = (e) => {
         setInput(e.target.value);
-        };
-    
-        const handleEnterKey = (e) => {
+    };
+    // font-family: 'Prompt', sans-serif;
+    const handleEnterKey = (e) => {
         if (e.key === 'Enter') {
             handleCommand(input);
         }
-        };
-        const handleCommand = (command) => {
-            let result;
-        
-            switch (command.toLowerCase()) {
+    };
+    const handleCommand = (command) => {
+        let result;
+
+     
+
+
+
+        switch (command.toLowerCase()) {
+            case 'info':
+                result = "Information: Armaan | 14 | Tea | Flutter | Flame | Web and Android Dev | Chess | M.U.N(s) | Firebase | Supabase | MongoDB | React.js | HTML | CSS | JAVASCRIPT"
+                break;
+            case 'projects':
+                result = "Projects: <a href='https://devpost.com/software/eyefit-5sjamy'>EyeFit <a/> | <a href='https://devpost.com/software/thebookverse'> TheBookVerse <a/> | <a href='https://devpost.com/software/parko-f5nmoi'>Parko<a/> |<a href='https://devpost.com/software/portthefolio'> PortTheFolio </a>| <a href='https://devpost.com/armaan33000?ref_content=user-portfolio&ref_feature=portfolio&ref_medium=global-nav'>More on Devpost</a>";
+                break;
             case 'clear':
                 result = '';
                 setOutput('');
@@ -50,54 +60,62 @@ const HomePage = () => {
                 result = input.slice(5); // Assuming "echo" is the first 4 characters of the input
                 break;
             case 'help':
-                result = 'Available commands: clear, echo, help';
+                result = 'Available commands: info, projects, clear, echo, help, contact';
                 break;
             default:
+
+                if(command.toLowerCase().includes('echo')){
+                    result = command.slice(5); 
+                break;
+                }
+
                 result = 'Command not recognized';
-            }
+        }
 
-            if (result !== '') {
-                result = "sudo$root$>>>" + result;
-              }
-            
-        
-            setOutput((prevOutput) => prevOutput + (prevOutput ? '<hr/>' : '') + result);
-        
-            setInput('');
-        };
-        
-        const showTerminal = () => {
 
-            
-        
+
+        if (result !== '') {
+            result = "C:\Admin>>>" + result;
+        }
+
+
+        setOutput((prevOutput) => prevOutput + (prevOutput ? '<hr/>' : '') + result);
+
+        setInput('');
+    };
+
+    const showTerminal = () => {
+
+
+
         return (
             <>
-            <div className="terminalDiv text-left p-2" style={{overflowY: "auto   "}}>
-                <h3 className='text-white font-bold'>Nintendo Console Armaan Portfolio ©️ 2024</h3>
-                <div className="commandText flex-row justify-start">
-                <p style={{ color: "white", fontFamily: "Poppins", fontSize: "14px" }}>sudo$root$>>></p>
-                <input
-                style={{ background: "none", color: "white", outline: "none", width: "100%", marginLeft: "7px", fontSize: "14px", fontFamily: "arial" }}
-                type="text"
-                value={input}
-                onChange={handleInputChange}
-                onKeyPress={handleEnterKey}
-            />
+                <div className="terminalDiv text-left p-2" style={{ overflowY: "auto   " }}>
+                    <h3 className='text-white font-bold'>Nintendo Console Armaan Portfolio ©️ 2024</h3>
+                    <div className="commandText flex-row justify-start">
+                        <p style={{ color: "white", fontFamily: "Poppins", fontSize: "14px" }}>C:\Admin&gt;&gt;&gt;</p>
+                        <input
+                            style={{ background: "none", color: "white", outline: "none", width: "100%", marginLeft: "7px", fontSize: "14px", fontFamily: "arial" }}
+                            type="text"
+                            value={input}
+                            onChange={handleInputChange}
+                            onKeyPress={handleEnterKey}
+                        />
+                    </div>
+
+
+
+                    <div className="output" style={{ color: "white", fontSize: "12px", fontFamily: "Prompt" }} dangerouslySetInnerHTML={{ __html: output }} />
+
+
+
+
                 </div>
-                
-                
-                
-                <div className="output" style={{color: "white", fontSize: "12px"}} dangerouslySetInnerHTML={{ __html: output }} />
-                
-
-                
-
-            </div>
             </>
         );
-        };
+    };
 
-    const handleShowTerminalButtonClick = ()  => {
+    const handleShowTerminalButtonClick = () => {
         setshowTerminalButton(true);
         setonBottomArrowButtonClick(false);
         setonLeftArrowButtonClick(false);
@@ -107,7 +125,7 @@ const HomePage = () => {
     }
 
 
-      
+
 
     const handleBottomArrowButtonClick = () => {
         setonBottomArrowButtonClick(true);
@@ -116,7 +134,7 @@ const HomePage = () => {
         setOnTopButtonClick(false);
         setonUpArrowButtonClick(false);
         setshowTerminalButton(false);
-        
+
     }
 
     const handleLeftArrowButtonClick = () => {
@@ -193,26 +211,26 @@ const HomePage = () => {
             return (
                 <><div className='projectsDiv text-white' style={styles.fadeIn}>
 
-                        
-                    <h4 className='profileNameText' style={{background : "#2b3237",fontSize: "25px"}}>Armaan's Projects</h4>
-                        <div className="projects" style={styles.fadeIn  }>
-                            <div className="project">
-                                <a href="https://devpost.com/software/eduso" target="new" style={{background: "white"}}><img src="https://d112y698adiu2z.cloudfront.net/photos/production/software_photos/002/352/386/datas/gallery.jpg" className='projectImage'/></a>
-                                <h5 style={{background: "none", width: "70px", fontSize: "12px"}}>EyeFit</h5>
-                            </div>
-                            <div className="project">
-                                <a href="https://devpost.com/software/thebookverse" target="new"><img src="https://d112y698adiu2z.cloudfront.net/photos/production/software_photos/002/566/991/datas/gallery.jpg" className='projectImage'/></a> 
-                                <h5 style={{background: "none", width: "70px", fontSize: "12px"}}>TheBookVerse</h5>
-                            </div>
-                            <div className="project">
-                            <a href="https://devpost.com/software/parko-f5nmoi" target="new" style={{background: "white"}}><img src="https://d112y698adiu2z.cloudfront.net/photos/production/software_photos/002/542/509/datas/gallery.jpg" className='projectImage'/></a>
-                                <h5 style={{background: "none", width: "70px", fontSize: "12px"}}>Parko</h5>
-                            </div>
-                            <div className="project">
-                            <a href="https://devpost.com/software/portthefolio" target="new" style={{background: "white"}}><img src="https://d112y698adiu2z.cloudfront.net/photos/production/software_thumbnail_photos/002/497/256/datas/medium.png" className='projectImage'/></a>
-                                <h5 style={{background: "none", width: "70px", fontSize: "12px"}}>PortTheFolio</h5>
-                            </div>
+
+                    <h4 className='profileNameText' style={{ background: "#2b3237", fontSize: "25px" }}>Armaan's Projects</h4>
+                    <div className="projects" style={styles.fadeIn}>
+                        <div className="project">
+                            <a href="https://devpost.com/software/eduso" target="new" style={{ background: "white" }}><img src="https://d112y698adiu2z.cloudfront.net/photos/production/software_photos/002/352/386/datas/gallery.jpg" className='projectImage' /></a>
+                            <h5 style={{ background: "none", width: "70px", fontSize: "12px" }}>EyeFit</h5>
                         </div>
+                        <div className="project">
+                            <a href="https://devpost.com/software/thebookverse" target="new"><img src="https://d112y698adiu2z.cloudfront.net/photos/production/software_photos/002/566/991/datas/gallery.jpg" className='projectImage' /></a>
+                            <h5 style={{ background: "none", width: "70px", fontSize: "12px" }}>TheBookVerse</h5>
+                        </div>
+                        <div className="project">
+                            <a href="https://devpost.com/software/parko-f5nmoi" target="new" style={{ background: "white" }}><img src="https://d112y698adiu2z.cloudfront.net/photos/production/software_photos/002/542/509/datas/gallery.jpg" className='projectImage' /></a>
+                            <h5 style={{ background: "none", width: "70px", fontSize: "12px" }}>Parko</h5>
+                        </div>
+                        <div className="project">
+                            <a href="https://devpost.com/software/portthefolio" target="new" style={{ background: "white" }}><img src="https://d112y698adiu2z.cloudfront.net/photos/production/software_thumbnail_photos/002/497/256/datas/medium.png" className='projectImage' /></a>
+                            <h5 style={{ background: "none", width: "70px", fontSize: "12px" }}>PortTheFolio</h5>
+                        </div>
+                    </div>
                 </div>
                 </>
             )
@@ -228,7 +246,7 @@ const HomePage = () => {
                     <br />
                     <h3 className='background-none' style={{ fontFamily: "Acme", background: "none", fontSize: "32px" }}>SKILL SET 🚀</h3>
                     <br />
-                    <h4 style={{ background: "none", fontSize: "18px", background: "none", fontWeight: "bold", fontFamily: "Poor Story" }}> <ReactTyped style={{ background: "none" }} strings={["🪄 Flutter | 🔥 Flame | 🕸️ HTML | ©️ CSS | 💻 JAVASCRIPT | 🐍 Python | 📖 React.js | 📂 Open Source | 🏆 Hackathon Lover | 🎨 Figma | 🖼️ Adobe XD | ☁️ Firebase | ☁️ Supabase | ☁️ MongoDB"]} typeSpeed={40} loop /></h4>
+                    <h4 style={{ background: "none", fontSize: "16px", background: "none", fontWeight: "bold", fontFamily: "Poor Story" }}> <ReactTyped style={{ background: "none" }} strings={["🪄 Flutter | 🔥 Flame | 🕸️ HTML | ©️ CSS | 💻 JAVASCRIPT | 🐍 Python | 📖 React.js | 📂 Open Source | 🏆 Hackathon Lover | 🎨 Figma | 🖼️ Adobe XD | ☁️ Firebase | ☁️ Supabase | ☁️ MongoDB"]} typeSpeed={40} loop /></h4>
                     <h4 style={{ background: "none", fontSize: "16px", background: "none", fontWeight: "bold", fontFamily: "Poor story" }}> <ReactTyped style={{ background: "none" }} strings={["Did ©️, ©️➕➕, and ☕ long time ago."]} typeSpeed={100} /></h4>
 
                     <br />
@@ -250,26 +268,26 @@ const HomePage = () => {
 
 
                     <br />
-                            <h4 className='educationHeadlineText font-semibold text-white text-5xl'>Education and Experience! 📙</h4>
-                            <div className="educationBoxes">
-                                <div className="educationBox1">
-                                    <h3 className='text-2xl font-bold' style={{fontFamily: "Poppins"}}>Education 🏫</h3>
-                                    <h4>25/01/2010 = Birth</h4>
-                                    <h4>2013-Present = School </h4>
-                                    <h4><a href="http://shcsjagraon.com" target="new" style={{fontFamily: "Poppins", color: "skyblue"}}>SHCS, Jagraon 📌</a></h4>
-                                </div>
+                    <h4 className='educationHeadlineText font-semibold text-white text-5xl'>Education and Experience! 📙</h4>
+                    <div className="educationBoxes">
+                        <div className="educationBox1">
+                            <h3 className='text-2xl font-bold' style={{ fontFamily: "Poppins" }}>Education 🏫</h3>
+                            <h4>25/01/2010 = Birth</h4>
+                            <h4>2013-Present = School </h4>
+                            <h4><a href="http://shcsjagraon.com" target="new" style={{ fontFamily: "Poppins", color: "skyblue" }}>SHCS, Jagraon 📌</a></h4>
+                        </div>
 
-                                {/* <div className="dividerBox"></div> */}
+                        {/* <div className="dividerBox"></div> */}
 
-                                <div className="educationBox2">
-                                <h3 className='text-2xl font-bold' style={{fontFamily: "Poppins"}}>Experience 💼</h3>
-                                <h4>Hackathon Hacker 👨🏻‍💻</h4>
-                                    <h4>^ 2022 Nov - Present 🕰️ </h4>
-                                    <h4>Appgud hackathon judge - 2024 🧑🏻‍⚖️</h4>
-                                    <h4>CodeBeetles Admin - Present 🔥</h4>
-                                    
-                                </div>
-                            </div>
+                        <div className="educationBox2">
+                            <h3 className='text-2xl font-bold' style={{ fontFamily: "Poppins" }}>Experience 💼</h3>
+                            <h4>Hackathon Hacker 👨🏻‍💻</h4>
+                            <h4>^ 2022 Nov - Present 🕰️ </h4>
+                            <h4>Appgud hackathon judge - 2024 🧑🏻‍⚖️</h4>
+                            <h4>CodeBeetles Admin - Present 🔥</h4>
+
+                        </div>
+                    </div>
                     <br />
                 </div>
 
@@ -383,7 +401,7 @@ const HomePage = () => {
                                     {onRightArrowButtonClick ? showContact() : null}
                                     {onLeftArrowButtonClick ? showEducation() : null}
                                     {onBottomArrowButtonClick ? showProjects() : null}
-                                    {showTerminalButton ? showTerminal() : null}3
+                                    {showTerminalButton ? showTerminal() : null}
                                 </div>
                             </div>
                         </div>
