@@ -95,6 +95,12 @@ body {
     font-family: 'sans-serif';
   }
 
+  .educationDiv {
+    background: none;
+  }
+
+
+
   .educationBox2 h3 {
     text-shadow: 1px 2px 2px wheat;
     font-size: 28px;
@@ -249,6 +255,10 @@ background: none;
 }
 
 
+.projectsDiv {
+    background:none;
+}
+
 
 .profileNameText {
     color: #fff;
@@ -256,12 +266,56 @@ background: none;
     background: none;
     margin-top: 10px;
     margin-right: 20px;
+    
     font-family: 'Protest Riot', sans-serif;
     text-align: center;
     text-transform: uppercase;
     letter-spacing: 2px;
     position: relative;
     animation: neonGlow 1.5s ease-in-out infinite alternate;
+}
+
+.project:hover {
+    cursor: pointer;
+    transform: scale(1.05);
+    border-top-left-radius: 50px;
+    border-top-right-radius: 50px;
+    border: 0.4px solid white;
+}
+
+@keyframes rotate {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+
+.projectImage {
+    border-radius: 50%;
+    width: 80px;
+    height: 80px;
+    border: 1px solid white;
+    animation: rotate 5s linear infinite;
+    background: #2b3136;
+}
+
+.project {
+    margin: 5px;
+    background: #2b3136;
+    transition: 0.3s ease-in-out;
+    margin-top: 10px;   
+    
+}
+
+.projects {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    background: none;
+
 }
 
 @keyframes normalGlow {

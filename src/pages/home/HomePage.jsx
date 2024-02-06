@@ -1,9 +1,10 @@
 import React from 'react';
 import './homepage.css';
-import { useState } from 'react';
+import { useState , useEffect } from 'react';
 import { fadeIn, fadeInDown } from 'react-animations';
 import Radium, { StyleRoot } from 'radium';
 import { ReactTyped } from 'react-typed';
+import MovingBalls from '../../components/MovingBalls';
 
 
 const styles = {
@@ -92,6 +93,37 @@ const HomePage = () => {
                     <h4 style={{ background: "none", fontFamily: "Poppins" }}>console.log("email: <a style={{ background: "none", fontFamily: "Poppins" }} href="mailto: armaan33000@gmail.com"><ReactTyped style={{ background: "none", color: "lightblue", textDecoration: "underline" }} strings={["armaan33000@gmail.com\");"]} typeSpeed={50} /></a></h4>
 
 
+                </div>
+                </>
+            )
+        }
+    }
+
+    const showProjects = () => {
+        if (onBottomArrowButtonClick) {
+            return (
+                <><div className='projectsDiv text-white' style={styles.fadeIn}>
+
+                        
+                    <h4 className='profileNameText' style={{background : "#2b3237",fontSize: "25px"}}>Armaan's Projects</h4>
+                        <div className="projects" style={styles.fadeIn  }>
+                            <div className="project">
+                                <a href="https://devpost.com/software/eduso" target="new" style={{background: "white"}}><img src="https://d112y698adiu2z.cloudfront.net/photos/production/software_photos/002/352/386/datas/gallery.jpg" className='projectImage'/></a>
+                                <h5 style={{background: "none", width: "70px", fontSize: "12px"}}>EyeFit</h5>
+                            </div>
+                            <div className="project">
+                                <a href="https://devpost.com/software/thebookverse" target="new"><img src="https://d112y698adiu2z.cloudfront.net/photos/production/software_photos/002/566/991/datas/gallery.jpg" className='projectImage'/></a> 
+                                <h5 style={{background: "none", width: "70px", fontSize: "12px"}}>TheBookVerse</h5>
+                            </div>
+                            <div className="project">
+                            <a href="https://devpost.com/software/parko-f5nmoi" target="new" style={{background: "white"}}><img src="https://d112y698adiu2z.cloudfront.net/photos/production/software_photos/002/542/509/datas/gallery.jpg" className='projectImage'/></a>
+                                <h5 style={{background: "none", width: "70px", fontSize: "12px"}}>Parko</h5>
+                            </div>
+                            <div className="project">
+                            <a href="https://devpost.com/software/portthefolio" target="new" style={{background: "white"}}><img src="https://d112y698adiu2z.cloudfront.net/photos/production/software_thumbnail_photos/002/497/256/datas/medium.png" className='projectImage'/></a>
+                                <h5 style={{background: "none", width: "70px", fontSize: "12px"}}>PortTheFolio</h5>
+                            </div>
+                        </div>
                 </div>
                 </>
             )
@@ -246,7 +278,7 @@ const HomePage = () => {
                                     </button>
                                 </div>
 
-                                <button className="bottomArrowButton">
+                                <button className="bottomArrowButton" onClick={handleBottomArrowButtonClick}>
                                     <img src="https://cdn-icons-png.flaticon.com/128/6916/6916826.png" height="20px" width="20px" />
                                 </button>
                             </div>
@@ -261,6 +293,7 @@ const HomePage = () => {
                                     {onUpArrowButtonClick ? showSkillSet() : null}
                                     {onRightArrowButtonClick ? showContact() : null}
                                     {onLeftArrowButtonClick ? showEducation() : null}
+                                    {onBottomArrowButtonClick ? showProjects() : null}
                                 </div>
                             </div>
                         </div>
