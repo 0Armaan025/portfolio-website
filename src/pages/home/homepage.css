@@ -633,3 +633,25 @@ img {
     bottom: 20px;
     margin-left: 45px;
 }
+
+.outputRow {
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+    /* align-items: ; */
+}
+
+.commandText {
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+    align-items: start;
+}
+
+.terminalDiv {
+    background: black;
+    height: 93%;
+    border-radius: 8px;
+    width: 96%;
+    margin: 8px;
+}

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useSyncExternalStore } from 'react';
 import './homepage.css';
 import { useState , useEffect } from 'react';
 import { fadeIn, fadeInDown } from 'react-animations';
@@ -19,11 +19,95 @@ const HomePage = () => {
 
 
 
+
     const [onTopButtonClick, setOnTopButtonClick] = useState(false);
     const [onUpArrowButtonClick, setonUpArrowButtonClick] = useState(false);
     const [onRightArrowButtonClick, setonRightArrowButtonClick] = useState(false);
     const [onLeftArrowButtonClick, setonLeftArrowButtonClick] = useState(false);
     const [onBottomArrowButtonClick, setonBottomArrowButtonClick] = useState(false);
+    const [showTerminalButton, setshowTerminalButton] = useState(false);
+        const [input, setInput] = useState('');
+        const [output, setOutput] = useState('');
+    
+        const handleInputChange = (e) => {
+        setInput(e.target.value);
+        };
+    
+        const handleEnterKey = (e) => {
+        if (e.key === 'Enter') {
+            handleCommand(input);
+        }
+        };
+        const handleCommand = (command) => {
+            let result;
+        
+            switch (command.toLowerCase()) {
+            case 'clear':
+                result = '';
+                setOutput('');
+                break;
+            case 'echo':
+                result = input.slice(5); // Assuming "echo" is the first 4 characters of the input
+                break;
+            case 'help':
+                result = 'Available commands: clear, echo, help';
+                break;
+            default:
+                result = 'Command not recognized';
+            }
+
+            if (result !== '') {
+                result = "sudo$root$>>>" + result;
+              }
+            
+        
+            setOutput((prevOutput) => prevOutput + (prevOutput ? '<hr/>' : '') + result);
+        
+            setInput('');
+        };
+        
+        const showTerminal = () => {
+
+            
+        
+        return (
+            <>
+            <div className="terminalDiv text-left p-2" style={{overflowY: "auto   "}}>
+                <h3 className='text-white font-bold'>Nintendo Console Armaan Portfolio ©️ 2024</h3>
+                <div className="commandText flex-row justify-start">
+                <p style={{ color: "white", fontFamily: "Poppins", fontSize: "14px" }}>sudo$root$>>></p>
+                <input
+                style={{ background: "none", color: "white", outline: "none", width: "100%", marginLeft: "7px", fontSize: "14px", fontFamily: "arial" }}
+                type="text"
+                value={input}
+                onChange={handleInputChange}
+                onKeyPress={handleEnterKey}
+            />
+                </div>
+                
+                
+                
+                <div className="output" style={{color: "white", fontSize: "12px"}} dangerouslySetInnerHTML={{ __html: output }} />
+                
+
+                
+
+            </div>
+            </>
+        );
+        };
+
+    const handleShowTerminalButtonClick = ()  => {
+        setshowTerminalButton(true);
+        setonBottomArrowButtonClick(false);
+        setonLeftArrowButtonClick(false);
+        setonRightArrowButtonClick(false);
+        setOnTopButtonClick(false);
+        setonUpArrowButtonClick(false);
+    }
+
+
+      
 
     const handleBottomArrowButtonClick = () => {
         setonBottomArrowButtonClick(true);
@@ -31,6 +115,7 @@ const HomePage = () => {
         setonRightArrowButtonClick(false);
         setOnTopButtonClick(false);
         setonUpArrowButtonClick(false);
+        setshowTerminalButton(false);
         
     }
 
@@ -38,6 +123,7 @@ const HomePage = () => {
         setonLeftArrowButtonClick(true);
         setonRightArrowButtonClick(false);
         setOnTopButtonClick(false);
+        setshowTerminalButton(false);
         setonUpArrowButtonClick(false);
         setonBottomArrowButtonClick(false);
     }
@@ -45,6 +131,7 @@ const HomePage = () => {
 
     const handleRightArrowButtonClick = () => {
         setonRightArrowButtonClick(true);
+        setshowTerminalButton(false);
         setOnTopButtonClick(false);
         setonBottomArrowButtonClick(false);
         setonUpArrowButtonClick(false);
@@ -55,6 +142,7 @@ const HomePage = () => {
         setOnTopButtonClick(true);
         setonBottomArrowButtonClick(false);
         setonUpArrowButtonClick(false);
+        setshowTerminalButton(false);
         setonRightArrowButtonClick(false);
         setonLeftArrowButtonClick(false);
     }
@@ -63,6 +151,7 @@ const HomePage = () => {
         setonUpArrowButtonClick(true);
         setonBottomArrowButtonClick(false);
         setOnTopButtonClick(false);
+        setshowTerminalButton(false);
         setonRightArrowButtonClick(false);
         setonLeftArrowButtonClick(false);
     }
@@ -294,6 +383,7 @@ const HomePage = () => {
                                     {onRightArrowButtonClick ? showContact() : null}
                                     {onLeftArrowButtonClick ? showEducation() : null}
                                     {onBottomArrowButtonClick ? showProjects() : null}
+                                    {showTerminalButton ? showTerminal() : null}3
                                 </div>
                             </div>
                         </div>
@@ -321,7 +411,7 @@ const HomePage = () => {
 
                             <br />
                             <div className="righttopButton">
-                                <button className="rightinternalButton">
+                                <button className="rightinternalButton" onClick={handleShowTerminalButtonClick}>
                                 </button>
                             </div>
 
