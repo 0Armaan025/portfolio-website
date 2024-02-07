@@ -26,6 +26,7 @@ const HomePage = () => {
     const [onLeftArrowButtonClick, setonLeftArrowButtonClick] = useState(false);
     const [onBottomArrowButtonClick, setonBottomArrowButtonClick] = useState(false);
     const [showTerminalButton, setshowTerminalButton] = useState(false);
+    const [showRickRollButton, setShowRickRollButton] = useState(false);
     const [input, setInput] = useState('');
     const [output, setOutput] = useState('');
 
@@ -38,12 +39,36 @@ const HomePage = () => {
             handleCommand(input);
         }
     };
+
+
+    const handleRickRollButton = () => {
+        setShowRickRollButton(true);
+        setshowTerminalButton(false);
+        setonBottomArrowButtonClick(false);
+        setonLeftArrowButtonClick(false);
+        setonRightArrowButtonClick(false);
+        setOnTopButtonClick(false);
+        setonUpArrowButtonClick(false);
+    }
+
+    const showRickRoll = () => {
+        if(showRickRollButton) {
+            return (
+                <>
+                
+                    
+                <iframe width="100%" height="100%" src="https://www.youtube.com/embed/xvFZjo5PgG0?si=mVEg-0lr0pP5Q34w&amp;controls=0&amp;start=2?autoplay=1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                </>
+            );
+        }
+    }
+
     const handleCommand = (command) => {
         let result;
 
-     
 
 
+        // https://www.youtube.com/watch?v=xvFZjo5PgG0
 
         switch (command.toLowerCase()) {
             case 'info':
@@ -56,17 +81,37 @@ const HomePage = () => {
                 result = '';
                 setOutput('');
                 break;
+            case 'contact':
+                result = 'Contact: <a href="mailto:armaan33000@gmail.com" target="new">Email</a> | <a href="https://github.com/0Armaan025/" target="new">Github</a> | <a href="https://twitter.com/0Armaan025/" target="new">X(formerly-twitter)</a> | <a href="https://devpost.com/armaan33000?ref_content=user-portfolio&ref_feature=portfolio&ref_medium=global-nav" target="new">Devpost</a>';
+                setOutput('');
+                break;
+            case 'npm start':
+                result = '';
+                setshowTerminalButton(false);
+                setonBottomArrowButtonClick(false);
+                setonLeftArrowButtonClick(false);
+                setonRightArrowButtonClick(false);
+                setOnTopButtonClick(true);
+                setonUpArrowButtonClick(false);
+                setOutput('');
+                break;
+            case 'ls':
+                result = 'Info<br/>Projects<br/>Clear<br/>Echo<br/>Help<br/>Contact<br/>npm start';
+                break;  
+            case 'dir':
+                    result = 'Info<br/>Projects<br/>Clear<br/>Echo<br/>Help<br/>Contact<br/>npm start';
+                    break;          
             case 'echo':
                 result = input.slice(5); // Assuming "echo" is the first 4 characters of the input
                 break;
             case 'help':
-                result = 'Available commands: info, projects, clear, echo, help, contact';
+                result = 'Available commands: info, projects, clear, echo, help, contact, npm start';
                 break;
             default:
 
-                if(command.toLowerCase().includes('echo')){
-                    result = command.slice(5); 
-                break;
+                if (command.toLowerCase().includes('echo')) {
+                    result = command.slice(5);
+                    break;
                 }
 
                 result = 'Command not recognized';
@@ -120,6 +165,7 @@ const HomePage = () => {
         setonBottomArrowButtonClick(false);
         setonLeftArrowButtonClick(false);
         setonRightArrowButtonClick(false);
+        setShowRickRollButton(false);
         setOnTopButtonClick(false);
         setonUpArrowButtonClick(false);
     }
@@ -131,6 +177,7 @@ const HomePage = () => {
         setonBottomArrowButtonClick(true);
         setonLeftArrowButtonClick(false);
         setonRightArrowButtonClick(false);
+        setShowRickRollButton(false);
         setOnTopButtonClick(false);
         setonUpArrowButtonClick(false);
         setshowTerminalButton(false);
@@ -143,6 +190,7 @@ const HomePage = () => {
         setOnTopButtonClick(false);
         setshowTerminalButton(false);
         setonUpArrowButtonClick(false);
+        setShowRickRollButton(false);
         setonBottomArrowButtonClick(false);
     }
 
@@ -152,6 +200,7 @@ const HomePage = () => {
         setshowTerminalButton(false);
         setOnTopButtonClick(false);
         setonBottomArrowButtonClick(false);
+        setShowRickRollButton(false);
         setonUpArrowButtonClick(false);
         setonLeftArrowButtonClick(false);
     }
@@ -160,6 +209,7 @@ const HomePage = () => {
         setOnTopButtonClick(true);
         setonBottomArrowButtonClick(false);
         setonUpArrowButtonClick(false);
+        setShowRickRollButton(false);
         setshowTerminalButton(false);
         setonRightArrowButtonClick(false);
         setonLeftArrowButtonClick(false);
@@ -167,6 +217,7 @@ const HomePage = () => {
 
     const handleUpArrowButtonClick = () => {
         setonUpArrowButtonClick(true);
+        setShowRickRollButton(false);
         setonBottomArrowButtonClick(false);
         setOnTopButtonClick(false);
         setshowTerminalButton(false);
@@ -402,6 +453,7 @@ const HomePage = () => {
                                     {onLeftArrowButtonClick ? showEducation() : null}
                                     {onBottomArrowButtonClick ? showProjects() : null}
                                     {showTerminalButton ? showTerminal() : null}
+                                    {showRickRollButton ? showRickRoll() : null}
                                 </div>
                             </div>
                         </div>
@@ -410,7 +462,7 @@ const HomePage = () => {
                             <button className='plus_btn font-black'>+</button>
 
                             <div className="letterButtons">
-                                <button className="topArrowButton">
+                                <button className="topArrowButton" onClick={handleRickRollButton}>
                                     <h3 className='arrowLetter'>X</h3>
                                 </button>
                                 <div className="leftAndRightArrowButtons">
