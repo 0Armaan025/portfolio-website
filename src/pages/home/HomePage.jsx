@@ -32,11 +32,19 @@ const HomePage = () => {
     const [output, setOutput] = useState('');
     const [friendName, setFriendName] = useState('');
     const [showFriends, setshowFriends] = useState(false);
+    const [friendsList, setFriendsList] = useState([]);
 
     const handleInputChange = (e) => {
         setInput(e.target.value);
     };
     
+    const getFriendsData = async () => {
+                const { data, error } = await supabase
+        .from('friends')
+        .select('friendName')
+        console.log(data);
+    }
+
     const handleFriendsName = (e) => {
         setFriendName(e.target.value);
     }
@@ -106,19 +114,19 @@ const HomePage = () => {
         }
     }
 
-    const showFriendsList =() => {
-        if(localStorage.getItem("isFriend")) {
-            return (
-                <>
+    
 
-                    <div className="friendsListDiv">
-                        <h4 className="friendsListHeading">Armaan's Friends! :D</h4>
+    const showFriendsList = async () => {
+
+        await getFriendsData();
+        return (
+            <>
+                <div>
+                    hi there
                     </div>
-                
-                </>
-            );
-        }   
-    }
+            </>
+        );
+    };
 
     const handleRickRollButton = () => {
         setShowRickRollButton(true);
