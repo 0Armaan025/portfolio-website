@@ -6,7 +6,7 @@ import Radium, { StyleRoot } from 'radium';
 import { ReactTyped } from 'react-typed';
 import MovingBalls from '../../components/MovingBalls';
 import Dino from '../../dino/Dino';
-
+import { supabase } from '../../components/supabaseClient';
 
 const styles = {
 
@@ -30,12 +30,18 @@ const HomePage = () => {
     const [showRickRollButton, setShowRickRollButton] = useState(false);
     const [input, setInput] = useState('');
     const [output, setOutput] = useState('');
-    const [showDinoGame, setshowDinoGame] = useState(false);
+    const [friendName, setFriendName] = useState('');
+    const [showFriends, setshowFriends] = useState(false);
 
     const handleInputChange = (e) => {
         setInput(e.target.value);
     };
-    // font-family: 'Prompt', sans-serif;
+    
+    const handleFriendsName = (e) => {
+        setFriendName(e.target.value);
+    }
+
+
     const handleEnterKey = (e) => {
         if (e.key === 'Enter') {
             handleCommand(input);
@@ -44,23 +50,74 @@ const HomePage = () => {
 
     const handleDinoGameButton = () => {
         setOnTopButtonClick(false);
+        
         setonUpArrowButtonClick(false);
         setonRightArrowButtonClick(false);
         setonLeftArrowButtonClick(false);
         setonBottomArrowButtonClick(false);
         setshowTerminalButton(false);
         setShowRickRollButton(false);
-        setshowDinoGame(true);
+        setshowFriends(true);
     }
 
-    const returnDinoGame = () => {
-        if(showDinoGame) {
+
+    const addFriendsToStorage = async () => {
+        
+        
+        try {
+            const { data, error } = await supabase
+                .from('friends')
+                .upsert([
+                    {
+                        friendName: friendName,
+                    },
+                ]);
+    
+            if (error) {
+                console.error('Error adding friend:', error.message);
+            } else {
+                localStorage.setItem("isFriend", true);
+                showFriendsScreen();
+            }
+        } catch (error) {
+            console.error('Error adding friend:', error.message);
+        }
+    };
+    
+    
+
+    const showFriendsScreen = () => {
+        if (showFriends) {
             return (
                 <>
-                    <Dino/>
+                    {!localStorage.getItem("isFriend") ? (
+                        <div className="friendsDiv">
+                            <h4 style={{ color: "white", fontSize: "18px", fontFamily: "Poppins", width: "320px", marginTop: "18px" }}>Add your name to be Armaan's friend and view friends! 😉</h4>
+
+                            <input type="text" placeholder='Enter your name hereeee.' onChange={handleFriendsName} style={{ padding: "4px", borderRadius: "6px", marginTop: "18px", width: "280px", color: "white", textAlign: "center" }} />
+                            <br />
+                            <input type="button" onClick={addFriendsToStorage} className="submitBtnForFriendName" value="Submit" style={{ border: "none", marginTop: "18px", paddingRight: "8px", paddingLeft: "8px", paddingTop: "4px", paddingBottom: "4px", background: "#2d0042", color: "white", width: "80px", borderRadius: "8px", transition: "0.3s ease-in-out" }} />
+                        </div>
+                    ) : (
+                        showFriendsList()
+                    )}
                 </>
             );
         }
+    }
+
+    const showFriendsList =() => {
+        if(localStorage.getItem("isFriend")) {
+            return (
+                <>
+
+                    <div className="friendsListDiv">
+                        <h4 className="friendsListHeading">Armaan's Friends! :D</h4>
+                    </div>
+                
+                </>
+            );
+        }   
     }
 
     const handleRickRollButton = () => {
@@ -71,7 +128,7 @@ const HomePage = () => {
         setonRightArrowButtonClick(false);
         setOnTopButtonClick(false);
         setonUpArrowButtonClick(false);
-        setshowDinoGame(false);
+        setshowFriends(false);
     }
 
     const showRickRoll = () => {
@@ -239,7 +296,7 @@ const HomePage = () => {
         setonRightArrowButtonClick(false);
         setShowRickRollButton(false);
         setOnTopButtonClick(false);
-        setshowDinoGame(false);
+        setshowFriends(false);
         setonUpArrowButtonClick(false);
     }
 
@@ -252,7 +309,7 @@ const HomePage = () => {
         setonRightArrowButtonClick(false);
         setShowRickRollButton(false);
         setOnTopButtonClick(false);
-        setshowDinoGame(false);
+        setshowFriends(false);
         setonUpArrowButtonClick(false);
         setshowTerminalButton(false);
 
@@ -266,7 +323,7 @@ const HomePage = () => {
         setonUpArrowButtonClick(false);
         setShowRickRollButton(false);
         setonBottomArrowButtonClick(false);
-        setshowDinoGame(false);
+        setshowFriends(false);
     }
 
 
@@ -277,7 +334,7 @@ const HomePage = () => {
         setonBottomArrowButtonClick(false);
         setShowRickRollButton(false);
         setonUpArrowButtonClick(false);
-        setshowDinoGame(false);
+        setshowFriends(false);
         setonLeftArrowButtonClick(false);
     }
 
@@ -285,7 +342,7 @@ const HomePage = () => {
         setOnTopButtonClick(true);
         setonBottomArrowButtonClick(false);
         setonUpArrowButtonClick(false);
-        setshowDinoGame(false);
+        setshowFriends(false);
         setShowRickRollButton(false);
         setshowTerminalButton(false);
         setonRightArrowButtonClick(false);
@@ -296,7 +353,7 @@ const HomePage = () => {
         setonUpArrowButtonClick(true);
         setShowRickRollButton(false);
         setonBottomArrowButtonClick(false);
-        setshowDinoGame(false);
+        setshowFriends(false);
         setOnTopButtonClick(false);
         setshowTerminalButton(false);
         setonRightArrowButtonClick(false);
@@ -532,7 +589,7 @@ const HomePage = () => {
                                     {onBottomArrowButtonClick ? showProjects() : null}
                                     {showTerminalButton ? showTerminal() : null}
                                     {showRickRollButton ? showRickRoll() : null}
-                                    {showDinoGame ? returnDinoGame() : null}
+                                    {showFriends ? showFriendsScreen() : null}
                                 </div>
                             </div>
                         </div>
@@ -544,8 +601,8 @@ const HomePage = () => {
                                 <button className="topArrowButton" onClick={handleRickRollButton}>
                                     <h3 className='arrowLetter'>X</h3>
                                 </button>
-                                <div className="leftAndRightArrowButtons" onClick={handleDinoGameButton}>
-                                    <button className="leftArrowButton">
+                                <div className="leftAndRightArrowButtons" >
+                                    <button className="leftArrowButton" onClick={handleDinoGameButton}>
                                         <h3 className='arrowLetter'>Y</h3>
                                     </button>
                                     <button className="rightArrowButton">

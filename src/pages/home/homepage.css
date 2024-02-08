@@ -649,10 +649,32 @@ img {
     align-items: start;
 }
 
+.submitBtnForFriendName {
+    transition: 0.3s ease-in-out;
+}
+
+.submitBtnForFriendName:hover {
+    cursor: pointer;
+    position: relative;
+    left: 60px;
+    /* right: 80px; */
+    border: 1px solid white;
+}
+
 .terminalDiv {
     background: black;
     height: 93%;
     border-radius: 8px;
     width: 96%;
     margin: 8px;
+}
+
+.friendsDiv {
+    background: none;
+
+}
+
+.friendsListDiv {
+    background: none;
+    
 }
