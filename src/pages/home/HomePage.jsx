@@ -5,6 +5,7 @@ import { fadeIn, fadeInDown } from 'react-animations';
 import Radium, { StyleRoot } from 'radium';
 import { ReactTyped } from 'react-typed';
 import MovingBalls from '../../components/MovingBalls';
+import Dino from '../../dino/Dino';
 
 
 const styles = {
@@ -29,6 +30,7 @@ const HomePage = () => {
     const [showRickRollButton, setShowRickRollButton] = useState(false);
     const [input, setInput] = useState('');
     const [output, setOutput] = useState('');
+    const [showDinoGame, setshowDinoGame] = useState(false);
 
     const handleInputChange = (e) => {
         setInput(e.target.value);
@@ -40,6 +42,26 @@ const HomePage = () => {
         }
     };
 
+    const handleDinoGameButton = () => {
+        setOnTopButtonClick(false);
+        setonUpArrowButtonClick(false);
+        setonRightArrowButtonClick(false);
+        setonLeftArrowButtonClick(false);
+        setonBottomArrowButtonClick(false);
+        setshowTerminalButton(false);
+        setShowRickRollButton(false);
+        setshowDinoGame(true);
+    }
+
+    const returnDinoGame = () => {
+        if(showDinoGame) {
+            return (
+                <>
+                    <Dino/>
+                </>
+            );
+        }
+    }
 
     const handleRickRollButton = () => {
         setShowRickRollButton(true);
@@ -52,12 +74,12 @@ const HomePage = () => {
     }
 
     const showRickRoll = () => {
-        if(showRickRollButton) {
+        if (showRickRollButton) {
             return (
                 <>
-                
-                    
-                <iframe width="100%" height="100%" src="https://www.youtube.com/embed/xvFZjo5PgG0?si=mVEg-0lr0pP5Q34w&amp;controls=0&amp;start=2?autoplay=1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+
+
+                    <iframe width="100%" height="100%" src="https://www.youtube.com/embed/xvFZjo5PgG0?si=mVEg-0lr0pP5Q34w&amp;controls=0&amp;start=2?autoplay=1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
                 </>
             );
         }
@@ -95,22 +117,71 @@ const HomePage = () => {
                 setonUpArrowButtonClick(false);
                 setOutput('');
                 break;
+            case 'education':
+                result = 'Education: 25/01/2010 = Birth | 2013-Present = School | <a href="http://shcsjagraon.com" target="new">SHCS, Jagraon</a>';
+                break;    
+            case 'experience':
+                result = '';
+                break;    
             case 'ls':
-                result = 'Info<br/>Projects<br/>Clear<br/>Echo<br/>Help<br/>Contact<br/>npm start';
-                break;  
+                result = 'Info<br/>Projects<br/>Clear<br/>Echo<br/>Help<br/>Contact<br/>npm start<br/>Education<br/>Experience';
+                break;
             case 'dir':
-                    result = 'Info<br/>Projects<br/>Clear<br/>Echo<br/>Help<br/>Contact<br/>npm start';
-                    break;          
+                result = 'Info<br/>Projects<br/>Clear<br/>Echo<br/>Help<br/>Contact<br/>npm start<br/>Education<br/>Experience';
+                break;
             case 'echo':
                 result = input.slice(5); // Assuming "echo" is the first 4 characters of the input
                 break;
             case 'help':
-                result = 'Available commands: info, projects, clear, echo, help, contact, npm start';
+                result = 'Available commands: info, projects, clear, echo, help, contact, npm start, education, experience';
                 break;
             default:
 
                 if (command.toLowerCase().includes('echo')) {
                     result = command.slice(5);
+                    break;
+                }
+
+                else if (command.toLowerCase().includes('cd')) {
+                    result = command.slice(3);
+
+                    if (result.toLowerCase() == "info") {
+                        result = "Information: Armaan | 14 | Tea | Flutter | Flame | Web and Android Dev | Chess | M.U.N(s) | Firebase | Supabase | MongoDB | React.js | HTML | CSS | JAVASCRIPT"
+                        break;
+                    }
+                    else if (result.toLowerCase() == "projects") {
+                        result = "Projects: <a href='https://devpost.com/software/eyefit-5sjamy'>EyeFit <a/> | <a href='https://devpost.com/software/thebookverse'> TheBookVerse <a/> | <a href='https://devpost.com/software/parko-f5nmoi'>Parko<a/> |<a href='https://devpost.com/software/portthefolio'> PortTheFolio </a>| <a href='https://devpost.com/armaan33000?ref_content=user-portfolio&ref_feature=portfolio&ref_medium=global-nav'>More on Devpost</a>";
+                        break;
+                    }
+                    else if (result.toLowerCase() == "contact") {
+                        result = 'Contact: <a href="mailto:armaan33000@gmail.com" target="new">Email</a> | <a href="https://github.com/0Armaan025/" target="new">Github</a> | <a href="https://twitter.com/0Armaan025/" target="new">X(formerly-twitter)</a> | <a href="https://devpost.com/armaan33000?ref_content=user-portfolio&ref_feature=portfolio&ref_medium=global-nav" target="new">Devpost</a>';
+                        setOutput('');
+                        break;
+                    }
+                    else if (result.toLowerCase() == "education") {
+                        result = 'Education: 25/01/2010 = Birth | 2013-Present = School | <a href="http://shcsjagraon.com" target="new">SHCS, Jagraon</a>';
+                break;    
+                    }
+                    else if(result.toLowerCase() == "experience") {
+                        break;
+                    }
+                    else if(result.toLowerCase() == "clear") {
+                        result = '';
+                        setOutput('');
+                        break;
+                    }
+                    else if(result.toLowerCase() == "help") {
+                        result = 'Available commands: info, projects, clear, echo, help, contact, npm start, education, experience';
+                        break;
+                    }
+                    else {
+                        result = 'Command not recognized';
+                        break;
+                    }
+
+
+
+
                     break;
                 }
 
@@ -135,7 +206,7 @@ const HomePage = () => {
 
         return (
             <>
-                <div className="terminalDiv text-left p-2" style={{ overflowY: "auto   " }}>
+                <div className="terminalDiv text-left p-2" style={{ overflowY: "auto   ",fontFamily: "Poppins"}}>
                     <h3 className='text-white font-bold'>Nintendo Console Armaan Portfolio ©️ 2024</h3>
                     <div className="commandText flex-row justify-start">
                         <p style={{ color: "white", fontFamily: "Poppins", fontSize: "14px" }}>C:\Admin&gt;&gt;&gt;</p>
@@ -454,6 +525,7 @@ const HomePage = () => {
                                     {onBottomArrowButtonClick ? showProjects() : null}
                                     {showTerminalButton ? showTerminal() : null}
                                     {showRickRollButton ? showRickRoll() : null}
+                                    {showDinoGame ? returnDinoGame() : null}
                                 </div>
                             </div>
                         </div>
@@ -465,7 +537,7 @@ const HomePage = () => {
                                 <button className="topArrowButton" onClick={handleRickRollButton}>
                                     <h3 className='arrowLetter'>X</h3>
                                 </button>
-                                <div className="leftAndRightArrowButtons">
+                                <div className="leftAndRightArrowButtons" onClick={handleDinoGameButton}>
                                     <button className="leftArrowButton">
                                         <h3 className='arrowLetter'>Y</h3>
                                     </button>
