@@ -71,6 +71,7 @@ const HomePage = () => {
         setonRightArrowButtonClick(false);
         setOnTopButtonClick(false);
         setonUpArrowButtonClick(false);
+        setshowDinoGame(false);
     }
 
     const showRickRoll = () => {
@@ -238,6 +239,7 @@ const HomePage = () => {
         setonRightArrowButtonClick(false);
         setShowRickRollButton(false);
         setOnTopButtonClick(false);
+        setshowDinoGame(false);
         setonUpArrowButtonClick(false);
     }
 
@@ -250,6 +252,7 @@ const HomePage = () => {
         setonRightArrowButtonClick(false);
         setShowRickRollButton(false);
         setOnTopButtonClick(false);
+        setshowDinoGame(false);
         setonUpArrowButtonClick(false);
         setshowTerminalButton(false);
 
@@ -263,6 +266,7 @@ const HomePage = () => {
         setonUpArrowButtonClick(false);
         setShowRickRollButton(false);
         setonBottomArrowButtonClick(false);
+        setshowDinoGame(false);
     }
 
 
@@ -273,6 +277,7 @@ const HomePage = () => {
         setonBottomArrowButtonClick(false);
         setShowRickRollButton(false);
         setonUpArrowButtonClick(false);
+        setshowDinoGame(false);
         setonLeftArrowButtonClick(false);
     }
 
@@ -280,6 +285,7 @@ const HomePage = () => {
         setOnTopButtonClick(true);
         setonBottomArrowButtonClick(false);
         setonUpArrowButtonClick(false);
+        setshowDinoGame(false);
         setShowRickRollButton(false);
         setshowTerminalButton(false);
         setonRightArrowButtonClick(false);
@@ -290,6 +296,7 @@ const HomePage = () => {
         setonUpArrowButtonClick(true);
         setShowRickRollButton(false);
         setonBottomArrowButtonClick(false);
+        setshowDinoGame(false);
         setOnTopButtonClick(false);
         setshowTerminalButton(false);
         setonRightArrowButtonClick(false);
