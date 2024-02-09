@@ -714,7 +714,21 @@ img {
     70% {
         right: 82px;
     }
-    100% {
+    90% {
         right: 79px;
     }
+    100% {
+        right: 79px;
+        opacity: 0;
+    }
+}
+
+.avatarCreatorText {
+    font-size: 18px;
+    color: white;
+    margin-top: 10px;
+    font-weight: bold;
+    animation: normalGlow 2s ease-in-out forwards;
+    background: none;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }

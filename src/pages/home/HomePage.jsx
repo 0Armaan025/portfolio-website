@@ -5,6 +5,7 @@ import { fadeIn, fadeInDown } from 'react-animations';
 import Radium, { StyleRoot } from 'radium';
 import { ReactTyped } from 'react-typed';
 import MovingBalls from '../../components/MovingBalls';
+import axios from 'axios';
 import Dino from '../../dino/Dino';
 import { supabase } from '../../components/supabaseClient';
 
@@ -36,6 +37,36 @@ const HomePage = () => {
     const [friendName, setFriendName] = useState('');
     const [showFriends, setshowFriends] = useState(false);
     const [friendsList, setFriendsList] = useState();
+    const [userName, setuserName] = useState('Armaan');
+    const [imageSrc, setImageSrc] = useState('');
+
+    const generateImage = async () => {
+        const apiUrl = 'http://127.0.0.1:5000/generate_image';
+        const apiKey = 'armaanLovesCoding';
+    
+        try {
+          const response = await fetch(apiUrl, {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+              'Api-Key': apiKey,
+            },
+            body: JSON.stringify({ userName }),
+          });
+    
+          if (response.ok) {
+            const blob = await response.blob();
+            const imageUrl = URL.createObjectURL(blob);
+            setImageSrc(imageUrl);
+          } else {
+            console.error('Error:', response.statusText);
+          }
+        } catch (error) {
+          console.error('Error:', error);
+        }
+      };
+    
+
 
     const handleAdvancement = () => {
         setshowAdvacement(true);
@@ -55,6 +86,13 @@ const HomePage = () => {
             return (
                 <>
                     <div className="advancementDiv" style={{background: "none"}}>
+                        
+                        <h4 className='avatarCreatorText text-white font-bold'>Name Card Generator 😎</h4>
+                        
+                        <input type="text" placeholder='Enter your name' className='p-1 w-64 mr-32 mb-2 mt-2 rounded-md text-white'/>
+                        <button onClick={generateImage}>Generate</button>
+
+                        {imageSrc && <img src={imageSrc} alt="Generated Image" />}
                         <img src="https://i.postimg.cc/Hx12wS3H/achievement.png" className='advancementPng'/>
                     </div>
                 </>
