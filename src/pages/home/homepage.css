@@ -732,3 +732,14 @@ img {
     background: none;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
+
+.generateBtnForImage {
+    /* padding: 18px; */
+    padding: 4px;
+    border: 1px solid white;
+    border-radius: 2px;
+    color: white;
+    background: black;
+    font-weight: bold;
+    font-family: 'Poppins';
+}

@@ -43,7 +43,7 @@ const HomePage = () => {
     const generateImage = async () => {
         const apiUrl = 'http://127.0.0.1:5000/generate_image';
         const apiKey = 'armaanLovesCoding';
-    
+      
         try {
           const response = await fetch(apiUrl, {
             method: 'POST',
@@ -51,9 +51,9 @@ const HomePage = () => {
               'Content-Type': 'application/json',
               'Api-Key': apiKey,
             },
-            body: JSON.stringify({ userName }),
+            body: JSON.stringify({ name: userName }), // Make sure to use 'name' here
           });
-    
+      
           if (response.ok) {
             const blob = await response.blob();
             const imageUrl = URL.createObjectURL(blob);
@@ -65,6 +65,7 @@ const HomePage = () => {
           console.error('Error:', error);
         }
       };
+      
     
 
 
@@ -85,16 +86,19 @@ const HomePage = () => {
         if(showAdvancement) {
             return (
                 <>
-                    <div className="advancementDiv" style={{background: "none"}}>
+                    {/* <div className="advancementDiv" style={{background: "none"}}>
                         
                         <h4 className='avatarCreatorText text-white font-bold'>Name Card Generator 😎</h4>
                         
                         <input type="text" placeholder='Enter your name' className='p-1 w-64 mr-32 mb-2 mt-2 rounded-md text-white'/>
-                        <button onClick={generateImage}>Generate</button>
+                        <button onClick={generateImage} className='generateBtnForImage'>Generate</button>
 
-                        {imageSrc && <img src={imageSrc} alt="Generated Image" />}
-                        <img src="https://i.postimg.cc/Hx12wS3H/achievement.png" className='advancementPng'/>
-                    </div>
+                        {imageSrc && <img src={imageSrc} alt="Generated Image"  height="150px" width="150px" style={{marginTop: "4px"}}/>}
+                        <img src="https://i.postimg.cc/Hx12wS3H/achievement.png" className='advancementPng' />
+                    </div> */}
+                    <center>
+                        <h2 style={{color: "white"}}>Coming soon!</h2>
+                    </center>
                 </>
             );
         }
