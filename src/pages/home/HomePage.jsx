@@ -30,11 +30,39 @@ const HomePage = () => {
     const [showRickRollButton, setShowRickRollButton] = useState(false);
     const [input, setInput] = useState('');
     const [output, setOutput] = useState('');
+    const [showAdvancement, setshowAdvacement] = useState(false);
     const [loadingFriends, setLoadingFriends] = useState(true);
 
     const [friendName, setFriendName] = useState('');
     const [showFriends, setshowFriends] = useState(false);
     const [friendsList, setFriendsList] = useState();
+
+    const handleAdvancement = () => {
+        setshowAdvacement(true);
+        setShowRickRollButton(false);
+        setshowTerminalButton(false);
+        setonBottomArrowButtonClick(false);
+        setonLeftArrowButtonClick(false);
+        setonRightArrowButtonClick(false);
+        setOnTopButtonClick(false);
+        setonUpArrowButtonClick(false);
+        setshowFriends(false);
+    }
+
+    const showTheAdvancement = () => {
+
+        if(showAdvancement) {
+            return (
+                <>
+                    <div className="advancementDiv" style={{background: "none"}}>
+                        <img src="https://i.postimg.cc/Hx12wS3H/achievement.png" className='advancementPng'/>
+                    </div>
+                </>
+            );
+        }
+
+       
+    }
 
     const handleInputChange = (e) => {
         setInput(e.target.value);
@@ -77,7 +105,7 @@ const HomePage = () => {
 
     const handleDinoGameButton = () => {
         setOnTopButtonClick(false);
-        
+        setshowAdvacement(false);
         setonUpArrowButtonClick(false);
         setonRightArrowButtonClick(false);
         setonLeftArrowButtonClick(false);
@@ -122,36 +150,65 @@ const HomePage = () => {
         if (!localStorage.getItem("isFriend")) {
             return (
                 <div className="friendsDiv" style={{ background: "none" }}>
-                    <div>
+                    
                         <h4 style={{ color: "white", fontSize: "18px", fontFamily: "Poppins", width: "320px", marginTop: "18px" }}>Add your name to be Armaan's friend and view friends! 😉</h4>
                         <input type="text" placeholder='Enter your name hereeee.' onChange={handleFriendsName} style={{ padding: "4px", borderRadius: "6px", marginTop: "18px", width: "280px", color: "white", textAlign: "center" }} />
                         <br />
                         <input type="button" onClick={addFriendsToStorage} className="submitBtnForFriendName" value="Submit" style={{ border: "none", marginTop: "18px", paddingRight: "8px", paddingLeft: "8px", paddingTop: "4px", paddingBottom: "4px", background: "#2d0042", color: "white", width: "80px", borderRadius: "8px", transition: "0.3s ease-in-out" }} />
-                    </div>
+                    
                 </div>
             );
         } else {
             return (
                 <>
-                    <h4>Hi there</h4>
-                    <table style={{background: "none", color : "white", border: "2px solid white", padding: "5px"}}>
-                    <thead>
-                        <tr style={{border: "2px solid white", padding: "5px"}}>
-                            <th style={{border: "2px solid white", padding: "5px"}}>S. No</th>
-                            <th style={{border: "2px solid white", padding: "5px"}}>Friends</th>
+                  <br />
+                  <h4 style={{ fontFamily: "Poppins", color: "#fff", fontSize: "16px" }}>
+                    Friends List, let's see if you made it there :D🔥
+                  </h4>
+                  <br />
+                  <div
+                    style={{
+                      overflow: "auto",
+                      maxHeight: "130px", // Adjust according to your layout, leaving space for header and padding
+                      background: "none",
+                      borderRadius: "8px",
+                      boxShadow: "0 4px 8px rgba(0, 0, 0, 0.1)",
+                      marginRight: "18px",
+                      marginLeft: "18px",
+                    }}
+                  >
+                    <table
+                      style={{
+                        background: "none",
+                        color: "#fff",
+                        border: "2px solid #fff",
+                        width: "100%",
+                        borderCollapse: "collapse",
+                      }}
+                    >
+                      <thead>
+                        <tr style={{ border: "2px solid #fff" }}>
+                          <th style={{ border: "2px solid #fff", padding: "10px", background: "none" }}>S. No</th>
+                          <th style={{ border: "2px solid #fff", padding: "10px", background: "none" }}>Friends</th>
                         </tr>
-                    </thead>
-                    <tbody>
+                      </thead>
+                      <tbody>
                         {friendsList.map((friend, index) => (
-                            <tr key={index} style={{border: "2px solid white", padding: "5px"}}>
-                                <td style={{border: "2px solid white", padding: "5px"}}>{friend.id}</td>
-                                <td style={{border: "2px solid white", padding: "5px"}}>{friend.friendName}</td>
-                            </tr>
+                          <tr key={index} style={{ border: "2px solid #fff", background: "none" }}>
+                            <td style={{ border: "2px solid #fff", padding: "10px", background: "none" }}>
+                              {index + 1}
+                            </td>
+                            <td style={{ border: "2px solid #fff", padding: "10px", background: "none" }}>
+                              {friend.friendName}
+                            </td>
+                          </tr>
                         ))}
-                    </tbody>
-                </table>
+                      </tbody>
+                    </table>
+                  </div>
                 </>
-            );
+              );
+              
         }
     };
 
@@ -166,6 +223,7 @@ const HomePage = () => {
         setonBottomArrowButtonClick(false);
         setonLeftArrowButtonClick(false);
         setonRightArrowButtonClick(false);
+        setshowAdvacement(false);
         setOnTopButtonClick(false);
         setonUpArrowButtonClick(false);
         setshowFriends(false);
@@ -181,7 +239,7 @@ const HomePage = () => {
                 </>
             );
         }
-    }
+    }   
 
     const handleCommand = (command) => {
         let result;
@@ -197,6 +255,9 @@ const HomePage = () => {
             case 'projects':
                 result = "Projects: <a href='https://devpost.com/software/eyefit-5sjamy'>EyeFit <a/> | <a href='https://devpost.com/software/thebookverse'> TheBookVerse <a/> | <a href='https://devpost.com/software/parko-f5nmoi'>Parko<a/> |<a href='https://devpost.com/software/portthefolio'> PortTheFolio </a>| <a href='https://devpost.com/armaan33000?ref_content=user-portfolio&ref_feature=portfolio&ref_medium=global-nav'>More on Devpost</a>";
                 break;
+            case 'experience':
+                result = "Experience: Hackathon Hacker (2022 Nov-Present), CodeBeetles Admin - Present, Appgud hackathon hacks Judge - Present, HackUnited offer - present, streamlit ambassador - present, MLH Mentor (Previous)";
+                break;    
             case 'clear':
                 result = '';
                 setOutput('');
@@ -212,6 +273,7 @@ const HomePage = () => {
                 setonLeftArrowButtonClick(false);
                 setonRightArrowButtonClick(false);
                 setOnTopButtonClick(true);
+                setshowAdvacement(false);
                 setonUpArrowButtonClick(false);
                 setOutput('');
                 break;
@@ -336,6 +398,7 @@ const HomePage = () => {
         setonRightArrowButtonClick(false);
         setShowRickRollButton(false);
         setOnTopButtonClick(false);
+        setshowAdvacement(false);
         setshowFriends(false);
         setonUpArrowButtonClick(false);
     }
@@ -348,6 +411,7 @@ const HomePage = () => {
         setonLeftArrowButtonClick(false);
         setonRightArrowButtonClick(false);
         setShowRickRollButton(false);
+        setshowAdvacement(false);
         setOnTopButtonClick(false);
         setshowFriends(false);
         setonUpArrowButtonClick(false);
@@ -360,6 +424,7 @@ const HomePage = () => {
         setonRightArrowButtonClick(false);
         setOnTopButtonClick(false);
         setshowTerminalButton(false);
+        setshowAdvacement(false);
         setonUpArrowButtonClick(false);
         setShowRickRollButton(false);
         setonBottomArrowButtonClick(false);
@@ -373,6 +438,7 @@ const HomePage = () => {
         setOnTopButtonClick(false);
         setonBottomArrowButtonClick(false);
         setShowRickRollButton(false);
+        setshowAdvacement(false);
         setonUpArrowButtonClick(false);
         setshowFriends(false);
         setonLeftArrowButtonClick(false);
@@ -382,6 +448,7 @@ const HomePage = () => {
         setOnTopButtonClick(true);
         setonBottomArrowButtonClick(false);
         setonUpArrowButtonClick(false);
+        setshowAdvacement(false);
         setshowFriends(false);
         setShowRickRollButton(false);
         setshowTerminalButton(false);
@@ -397,6 +464,7 @@ const HomePage = () => {
         setOnTopButtonClick(false);
         setshowTerminalButton(false);
         setonRightArrowButtonClick(false);
+        setshowAdvacement(false);
         setonLeftArrowButtonClick(false);
     }
 
@@ -630,6 +698,7 @@ const HomePage = () => {
                                     {showTerminalButton ? showTerminal() : null}
                                     {showRickRollButton ? showRickRoll() : null}
                                     {showFriends ? renderFriendsScreen() : null}
+                                    {showAdvancement ? showTheAdvancement() : null}
                                 </div>
                             </div>
                         </div>
@@ -645,7 +714,7 @@ const HomePage = () => {
                                     <button className="leftArrowButton" onClick={handleDinoGameButton}>
                                         <h3 className='arrowLetter'>Y</h3>
                                     </button>
-                                    <button className="rightArrowButton">
+                                    <button className="rightArrowButton" onClick={handleAdvancement}>
                                         <h3 className='arrowLetter'>A</h3>
                                     </button>
                                 </div>

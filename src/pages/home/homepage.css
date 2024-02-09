@@ -689,3 +689,32 @@ img {
     margin-top: 18px;
     font-family: 'Lobster';
 }
+.advancementPng {
+    background: none;
+    height: 60px;
+    width: 280px;
+    position: relative;
+    top: 150px;
+    right: 95px;
+    z-index: inherit;
+    transition: 0.3s ease-in-out;
+    animation: position 1s ease-in-out forwards;
+}
+
+@keyframes position {
+    0% {
+        right: 95px;
+    }
+    20% {
+        right: 90px;
+    }
+    50% {
+        right: 86px;
+    }
+    70% {
+        right: 82px;
+    }
+    100% {
+        right: 79px;
+    }
+}
