@@ -30,20 +30,39 @@ const HomePage = () => {
     const [showRickRollButton, setShowRickRollButton] = useState(false);
     const [input, setInput] = useState('');
     const [output, setOutput] = useState('');
+    const [loadingFriends, setLoadingFriends] = useState(true);
+
     const [friendName, setFriendName] = useState('');
     const [showFriends, setshowFriends] = useState(false);
-    const [friendsList, setFriendsList] = useState([]);
+    const [friendsList, setFriendsList] = useState();
 
     const handleInputChange = (e) => {
         setInput(e.target.value);
     };
     
-    const getFriendsData = async () => {
+    useEffect(() => {
+        const getFriendsData = async () => {
+            try {
                 const { data, error } = await supabase
-        .from('friends')
-        .select('friendName')
-        console.log(data);
-    }
+                    .from('friends')
+                    .select('friendName');
+
+                console.log("the data is", data);
+
+                if (error) {
+                    console.error('Error fetching friends data:', error.message);
+                } else {
+                    setFriendsList(data);
+                }
+            } catch (error) {
+                console.error('Error fetching friends data:', error.message);
+            } finally {
+                setLoadingFriends(false);
+            }
+        };
+
+        getFriendsData();
+    }, []);
 
     const handleFriendsName = (e) => {
         setFriendName(e.target.value);
@@ -69,9 +88,10 @@ const HomePage = () => {
     }
 
 
+
+    
+
     const addFriendsToStorage = async () => {
-        
-        
         try {
             const { data, error } = await supabase
                 .from('friends')
@@ -80,12 +100,12 @@ const HomePage = () => {
                         friendName: friendName,
                     },
                 ]);
-    
+
             if (error) {
                 console.error('Error adding friend:', error.message);
             } else {
                 localStorage.setItem("isFriend", true);
-                showFriendsScreen();
+                setshowFriends(true);  // Update the state to trigger a re-render
             }
         } catch (error) {
             console.error('Error adding friend:', error.message);
@@ -94,39 +114,51 @@ const HomePage = () => {
     
     
 
-    const showFriendsScreen = () => {
-        if (showFriends) {
+    const renderFriendsScreen = () => {
+        if (loadingFriends) {
+            return <p>Loading friends...</p>;
+        }
+
+        if (!localStorage.getItem("isFriend")) {
+            return (
+                <div className="friendsDiv" style={{ background: "none" }}>
+                    <div>
+                        <h4 style={{ color: "white", fontSize: "18px", fontFamily: "Poppins", width: "320px", marginTop: "18px" }}>Add your name to be Armaan's friend and view friends! 😉</h4>
+                        <input type="text" placeholder='Enter your name hereeee.' onChange={handleFriendsName} style={{ padding: "4px", borderRadius: "6px", marginTop: "18px", width: "280px", color: "white", textAlign: "center" }} />
+                        <br />
+                        <input type="button" onClick={addFriendsToStorage} className="submitBtnForFriendName" value="Submit" style={{ border: "none", marginTop: "18px", paddingRight: "8px", paddingLeft: "8px", paddingTop: "4px", paddingBottom: "4px", background: "#2d0042", color: "white", width: "80px", borderRadius: "8px", transition: "0.3s ease-in-out" }} />
+                    </div>
+                </div>
+            );
+        } else {
             return (
                 <>
-                    {!localStorage.getItem("isFriend") ? (
-                        <div className="friendsDiv">
-                            <h4 style={{ color: "white", fontSize: "18px", fontFamily: "Poppins", width: "320px", marginTop: "18px" }}>Add your name to be Armaan's friend and view friends! 😉</h4>
-
-                            <input type="text" placeholder='Enter your name hereeee.' onChange={handleFriendsName} style={{ padding: "4px", borderRadius: "6px", marginTop: "18px", width: "280px", color: "white", textAlign: "center" }} />
-                            <br />
-                            <input type="button" onClick={addFriendsToStorage} className="submitBtnForFriendName" value="Submit" style={{ border: "none", marginTop: "18px", paddingRight: "8px", paddingLeft: "8px", paddingTop: "4px", paddingBottom: "4px", background: "#2d0042", color: "white", width: "80px", borderRadius: "8px", transition: "0.3s ease-in-out" }} />
-                        </div>
-                    ) : (
-                        showFriendsList()
-                    )}
+                    <h4>Hi there</h4>
+                    <table style={{background: "none", color : "white", border: "2px solid white", padding: "5px"}}>
+                    <thead>
+                        <tr style={{border: "2px solid white", padding: "5px"}}>
+                            <th style={{border: "2px solid white", padding: "5px"}}>S. No</th>
+                            <th style={{border: "2px solid white", padding: "5px"}}>Friends</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {friendsList.map((friend, index) => (
+                            <tr key={index} style={{border: "2px solid white", padding: "5px"}}>
+                                <td style={{border: "2px solid white", padding: "5px"}}>{friend.id}</td>
+                                <td style={{border: "2px solid white", padding: "5px"}}>{friend.friendName}</td>
+                            </tr>
+                        ))}
+                    </tbody>
+                </table>
                 </>
             );
         }
-    }
+    };
+
 
     
 
-    const showFriendsList = async () => {
-
-        await getFriendsData();
-        return (
-            <>
-                <div>
-                    hi there
-                    </div>
-            </>
-        );
-    };
+   
 
     const handleRickRollButton = () => {
         setShowRickRollButton(true);
@@ -597,7 +629,7 @@ const HomePage = () => {
                                     {onBottomArrowButtonClick ? showProjects() : null}
                                     {showTerminalButton ? showTerminal() : null}
                                     {showRickRollButton ? showRickRoll() : null}
-                                    {showFriends ? showFriendsScreen() : null}
+                                    {showFriends ? renderFriendsScreen() : null}
                                 </div>
                             </div>
                         </div>
