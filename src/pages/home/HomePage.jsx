@@ -513,7 +513,7 @@ const HomePage = () => {
     const showProfile = () => {
         if (onTopButtonClick) {
             return (
-                <><div className='profileDiv bg-white text-white' style={styles.fadeIn}>
+                <><div className='profileDiv text-white' style={styles.fadeIn}>
 
 
                     <div className="basicDetailsRow">
@@ -576,7 +576,7 @@ const HomePage = () => {
     const showSkillSet = () => {
         if (onUpArrowButtonClick) {
             return (
-                <><div className='skillsDiv bg-white text-white' style={styles.fadeIn}>
+                <><div className='skillsDiv text-white' style={styles.fadeIn}>
 
 
                     <br />
@@ -600,11 +600,11 @@ const HomePage = () => {
     const showEducation = () => {
         if (onLeftArrowButtonClick) {
             return (
-                <><div className='educationDiv bg-white text-white' style={styles.fadeIn}>
+                <><div className='educationDiv  text-white' style={styles.fadeIn}>
 
 
                     <br />
-                    <h4 className='educationHeadlineText font-semibold text-white text-5xl'>Education and Experience! 📙</h4>
+                    <h4 className='educationHeadlineText font-semibold text-white text-2xl'>Education and Experience! 📙</h4>
                     <div className="educationBoxes">
                         <div className="educationBox1">
                             <h3 className='text-2xl font-bold' style={{ fontFamily: "Poppins" }}>Education 🏫</h3>
@@ -639,7 +639,7 @@ const HomePage = () => {
     const showContact = () => {
         if (onRightArrowButtonClick) {
             return (
-                <><div className='contactDiv bg-white text-white' style={styles.fadeIn}>
+                <><div className='contactDiv  text-white' style={styles.fadeIn}>
 
 
 
