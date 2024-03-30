@@ -1,0 +1,745 @@
+@import url('https://fonts.googleapis.com/css2?family=Protest+Riot&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cute+Font&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Courgette&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Prompt&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Acme&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Rubik+Glitch+Pop&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poor+Story&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Acme&family=DM+Sans:opsz,wght@9..40,500&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    
+    background: black;
+}
+
+body {
+    --metal-tex: url(https://images.unsplash.com/photo-1501166222995-ff31c7e93cef?crop=entropy&cs=tinysrgb&fm=jpg&ixid=MnwzMjM4NDZ8MHwxfHJhbmRvbXx8fHx8fHx8fDE2NTcyMDc2NzU&ixlib=rb-1.2.1&q=80);
+}
+
+.contactDiv {
+    background: #2b3136;
+}
+.educationBoxes {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center; 
+    background: none;
+}
+.educationHeadlineText {
+    position: relative;
+    font-size:32px;
+    bottom:50px;
+    letter-spacing: 4px;
+    font-family: sans-serif;
+    display:table;
+    margin:40px auto;
+    cursor:pointer;
+    transition:.6s;
+  }
+  .educationHeadlineText:before,
+  .educationHeadlineText:after {
+    content:attr(data-text);
+    transition:.6s;
+  }
+
+  .educationBox1 {
+    display: flex;
+    
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    border-radius: 12px;
+    background: rgb(29, 29, 29);
+    margin-bottom: 30px;
+    
+    right:5px;
+    position: relative;
+    bottom: 60px;
+    transition: 0.3s ease-in-out;
+  }
+
+  .educationBox1:hover {
+    cursor: pointer;
+    transform: scale(1.05);
+    border: 0.4px solid white;
+  }
+
+  .dividerBox {
+    height: 100%;
+
+    width: 10px;
+    background: skyblue;
+  }
+
+
+  
+
+  .educationBox1 h3, h4 , a{
+    background: none;
+    font-family: 'sans-serif';
+  }
+
+  .educationBox1 h3 {
+    text-shadow: 1px 2px 2px wheat;
+    font-size: 26px;
+    text-decoration: underline;
+    margin-bottom: 5%;
+  }
+
+  .educationBox2 h3, h4{
+    background: none;
+    font-family: 'sans-serif';
+  }
+
+  .educationDiv {
+    background: none;
+  }
+
+
+
+  .educationBox2 h3 {
+    text-shadow: 1px 2px 2px wheat;
+    font-size: 28px;
+    text-decoration: underline;
+    margin-bottom: 5%;
+    background: none;
+  }
+  .educationBox2 h4 {
+    
+    font-size: 12px;
+    
+    
+    background: none;
+  }
+
+  .educationBox2 {
+    padding: 10px;
+    border-radius: 12px;
+    left: 5px;
+    position: relative;
+    bottom: 75px;
+    background: rgb(43, 38, 38);
+    transition: 0.3 ease-in-out;
+  }
+
+  .educationBox2:hover {
+    cursor: pointer;
+    transform: scale(1.05);
+    border: 0.4px solid white;
+  }
+
+
+  .educationHeadlineText:before {
+    left: 0;
+    top: 0;
+    position: absolute;
+    z-index:-1;
+    text-shadow:
+     0px 0px,
+     0px 0px,
+     0px 0px,
+     0px 0px,
+     0px 0px,
+     0px 0px,
+     0px 0px,
+     0px 0px,
+     0px 0px,
+     0px 0px;
+    -webkit-mask:repeating-linear-gradient(45deg, transparent 0 3px, rgba(0,0,0,0.5) 0 6px);
+            mask:repeating-linear-gradient(45deg, transparent 0 3px, rgba(0,0,0,0.5) 0 6px);
+  }
+  .educationHeadlineText:hover {
+    transform:translate(-10px,-10px);
+    text-shadow: 10px 20px 10px black   ;
+  }  
+  .educationHeadlineText:hover:before {
+    text-shadow:
+     1px 1px black,
+     2px 2px black ,
+     3px 3px black,
+     4px 4px black,
+     5px 5px black,
+     6px 6px black ,
+     7px 7px black,
+     8px 8px black,
+     9px 9px black,
+     10px 10px black;
+  }
+
+.contactLink {
+    animation: normalGlow 1.5s ease-in-out infinite alternate;
+    font-family: 'Courgette', cursive;
+}
+
+
+
+.contactBoxes {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    background: none;
+    padding: 2px;
+}
+
+.educationDiv {
+    background: none;
+}
+
+.educationHeadlineText {
+    background: none;
+    font-family: "Cute Font", cursive;
+
+}
+
+.contactBox1 {
+    background: none;
+}
+
+.contactBox1 {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.contactBox2 {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.slicedText {
+    font-size: 2rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: white;
+    font-family: "Permanent Marker", sans-serif;
+    margin-right: 2px;
+    margin-left: 2px;
+    padding: 10px;
+    background: none;
+    position: relative;
+    white-space: nowrap;
+
+    &:after {
+        --deco-height: 0.3125em;
+        content: "";
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: calc(var(--deco-height) * -0.625);
+        height: var(--deco-height);
+        background-image: url("data:image/svg+xml,%3Csvg width='100' height='64' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cg clip-path='url(%23a)'%3E%3Cpath d='M-17 30.5C-1 22 72-4 54 13 37.9 28.2-2.5 57.5 16 55.5s72-29 104-40' stroke='%2300FDCF' stroke-width='10'/%3E%3C/g%3E%3Cdefs%3E%3CclipPath id='a'%3E%3Cpath fill='%23fff' d='M0 0h100v64H0z'/%3E%3C/clipPath%3E%3C/defs%3E%3C/svg%3E%0A");
+        background-size: auto 100%;
+        background-repeat: round;
+        background-position: 0em;
+    }
+}
+
+
+.contactLink {
+background: none;
+}
+.middleRow {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    background: none;
+}
+
+
+.projectsDiv {
+    background:none;
+}
+
+
+.profileNameText {
+    color: #fff;
+    font-size: 3rem;
+    background: none;
+    margin-top: 10px;
+    margin-right: 20px;
+    
+    font-family: 'Protest Riot', sans-serif;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    position: relative;
+    animation: neonGlow 1.5s ease-in-out infinite alternate;
+}
+
+.project:hover {
+    cursor: pointer;
+    transform: scale(1.05);
+    border-top-left-radius: 50px;
+    border-top-right-radius: 50px;
+    border: 0.4px solid white;
+}
+
+@keyframes rotate {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+
+.projectImage {
+    border-radius: 50%;
+    width: 80px;
+    height: 80px;
+    border: 1px solid white;
+    animation: rotate 5s linear infinite;
+    background: #2b3136;
+}
+
+.project {
+    margin: 5px;
+    background: #2b3136;
+    transition: 0.3s ease-in-out;
+    margin-top: 10px;   
+    
+}
+
+.projects {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    background: none;
+
+}
+
+@keyframes normalGlow {
+    from {
+
+        text-shadow: 0 0 4px #00f0ff, 0 0 10px #00818b, 0 0 5px #00f0ff;
+
+    }
+
+    to {
+        text-shadow: 0 0 6px #00f0ff, 0 0 12px #84ff00, 0 0 20px #d0ff00;
+
+    }
+}
+
+.basicDetailsRow {
+    margin-top: 0px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    background: #2b3136;
+    align-items: center;
+}
+
+.profileImage {
+    background: #2b3136;
+    width: 70px;
+    margin-right: 20px;
+    height: 70px;
+    border-radius: 50%;
+}
+
+.skillsDiv {
+    background: #2b3136;
+}
+
+.profileNameText::after {
+    content: attr(data-text);
+    position: absolute;
+    background: none;
+    top: 0;
+    left: 0;
+    color: #00f0ff;
+    z-index: -1;
+}
+
+@keyframes neonGlow {
+    from {
+
+        text-shadow: 0 0 10px #00f0ff, 0 0 20px #00f0ff, 0 0 30px #00f0ff;
+
+    }
+
+    to {
+        text-shadow: 0 0 20px #00f0ff, 0 0 30px #00f0ff, 0 0 40px #00f0ff;
+
+    }
+}
+
+
+
+.profileDiv {
+    background: #2b3136;
+    height: 100%;
+    width: 100%;
+}
+
+.homePage {
+    background: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.nintendoSwitch {
+    display: flex;
+    flex-direction: row;
+
+}
+
+.nintendoSwitch__screen {
+    width: 480px;
+    height: 250px;
+    background: #02070e;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border-radius: 3px;
+    align-items: center;
+}
+
+.leftSide {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 2px 1px 1px grey;
+    width: 85px;
+    height: 260px;
+    border-end-start-radius: 40px;
+    border-top-left-radius: 40px;
+    background: #02ddff;
+}
+
+.rightSide {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 85px;
+    height: 260px;
+    border-end-end-radius: 40px;
+    border-top-right-radius: 40px;
+    background: #ff2a1c;
+    box-shadow: 2px 1px 1px grey;
+}
+
+.nintendoSwitch__outsideScreen {
+    width: 490px;
+    height: 260px;
+    background: #6e6e6e;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border-radius: 1px;
+    align-items: center;
+}
+
+.nintendoSwitch__screen__screen {
+    width: 430px;
+    height: 220px;
+    background: #2b3136;
+    border-radius: 2px;
+}
+
+
+
+/* https://cdn-icons-png.flaticon.com/128/271/271220.png left
+
+https://cdn-icons-png.flaticon.com/128/271/271228.png right
+
+https://cdn-icons-png.flaticon.com/128/3838/3838683.png top
+
+https://cdn-icons-png.flaticon.com/128/6916/6916826.png bottom */
+
+
+
+.topButton {
+    width: 50px;
+    box-shadow: 2px 1px 2px 3px black;
+    height: 50px;
+    bottom: 60px;
+    border-radius: 50%;
+    display: flex;
+    flex-direction: column;
+    margin-top: 60px;
+    position: relative;
+    background: linear-gradient(36deg, #090100, #7b7b7b);
+    justify-content: center;
+    align-items: center;
+}
+
+/* https://cdn-icons-png.flaticon.com/128/271/271220.png left
+
+https://cdn-icons-png.flaticon.com/128/271/271228.png right
+
+https://cdn-icons-png.flaticon.com/128/3838/3838683.png top
+
+https://cdn-icons-png.flaticon.com/128/6916/6916826.png bottom */
+
+.internalButton {
+    width: 30px;
+    height: 30px;
+    border: 1px solid rgb(56, 56, 56);
+    border-radius: 50%;
+
+    background: linear-gradient(36deg, #090100, #0b0000);
+}
+
+.righttopButton {
+    width: 50px;
+    box-shadow: 2px 1px 2px 3px black;
+    height: 50px;
+    bottom: 40px;
+    border-radius: 50%;
+    display: flex;
+    flex-direction: column;
+    margin-top: 30px;
+    position: relative;
+    background: linear-gradient(36deg, #090100, #7b7b7b);
+    justify-content: center;
+    align-items: center;
+}
+
+.plus_btn {
+    font-size: 30px;
+    position: relative;
+    right: 20px;
+    bottom: 5px;
+    color: black;
+    text-shadow: 2px 1px 3px black;
+}
+
+/* https://cdn-icons-png.flaticon.com/128/271/271220.png left
+
+https://cdn-icons-png.flaticon.com/128/271/271228.png right
+
+https://cdn-icons-png.flaticon.com/128/3838/3838683.png top
+
+https://cdn-icons-png.flaticon.com/128/6916/6916826.png bottom */
+
+.rightinternalButton {
+    width: 30px;
+    height: 30px;
+    border: 1px solid rgb(56, 56, 56);
+    border-radius: 50%;
+
+    background: linear-gradient(36deg, #090100, #0b0000);
+}
+
+.arrowLetter {
+    font-size: 14px;
+    background: none;
+}
+
+.leftArrowButton {
+    width: 25px;
+    height: 25px;
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    box-shadow: 2px 1px 2px black;
+    align-items: center;
+    right: 7.5px;
+    border-radius: 50%;
+    background: linear-gradient(65deg, rgb(15, 2, 0)0, #7b7b7b);
+}
+
+.topArrowButton {
+    width: 25px;
+    box-shadow: 2px 1px 2px black;
+    height: 25px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    background: linear-gradient(65deg, rgb(15, 2, 0)0, #7b7b7b);
+}
+
+.arrowButtons {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background: none;
+    align-items: center;
+}
+
+img {
+    background: none;
+}
+
+.letterButtons {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: none;
+    margin-top: 15px;
+    margin-bottom: 13px;
+}
+
+.leftAndRightArrowButtons {
+    display: flex;
+    flex-direction: row;
+    background: none;
+    justify-content: center;
+    align-items: center;
+}
+
+.bottomArrowButton {
+    width: 25px;
+    height: 25px;
+    display: flex;
+    flex-direction: row;
+    box-shadow: 2px 1px 2px black;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    background: linear-gradient(65deg, rgb(15, 2, 0)0, #7b7b7b);
+}
+
+.rightArrowButton {
+    width: 25px;
+    height: 25px;
+    position: relative;
+    box-shadow: 2px 1px 2px black;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    left: 7.5px;
+    border-radius: 50%;
+    background: linear-gradient(65deg, rgb(15, 2, 0)0, #7b7b7b);
+}
+
+.minus_btn {
+    width: 15px;
+    height: 5px;
+    background-color: black;
+    position: relative;
+    box-shadow: 2px 1px 3px black;
+    bottom: 20px;
+    margin-left: 45px;
+}
+
+.outputRow {
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+    /* align-items: ; */
+}
+
+.commandText {
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+    align-items: start;
+}
+
+.submitBtnForFriendName {
+    transition: 0.3s ease-in-out;
+}
+
+.submitBtnForFriendName:hover {
+    cursor: pointer;
+    position: relative;
+    left: 60px;
+    /* right: 80px; */
+    border: 1px solid white;
+}
+
+.terminalDiv {
+    background: black;
+    height: 93%;
+    border-radius: 8px;
+    width: 96%;
+    margin: 8px;
+}
+
+.friendsDiv {
+    background: none;
+
+}
+
+.friendsListDiv {
+    background: none;
+
+}
+.friendsListHeading{
+    background: none;
+    animation: normalGlow 1.5s ease-in-out infinite alternate;    
+    color: white;
+    font-size: 28px;
+    font-weight: bold;
+    margin-top: 18px;
+    font-family: 'Lobster';
+}
+.advancementPng {
+    background: none;
+    height: 60px;
+    width: 280px;
+    position: relative;
+    top: 150px;
+    right: 95px;
+    z-index: inherit;
+    transition: 0.3s ease-in-out;
+    animation: position 1s ease-in-out forwards;
+}
+
+@keyframes position {
+    0% {
+        right: 95px;
+    }
+    20% {
+        right: 90px;
+    }
+    50% {
+        right: 86px;
+    }
+    70% {
+        right: 82px;
+    }
+    90% {
+        right: 79px;
+    }
+    100% {
+        right: 79px;
+        opacity: 0;
+    }
+}
+
+.avatarCreatorText {
+    font-size: 18px;
+    color: white;
+    margin-top: 10px;
+    font-weight: bold;
+    animation: normalGlow 2s ease-in-out forwards;
+    background: none;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.generateBtnForImage {
+    /* padding: 18px; */
+    padding: 4px;
+    border: 1px solid white;
+    border-radius: 2px;
+    color: white;
+    background: black;
+    font-weight: bold;
+    font-family: 'Poppins';
+}
